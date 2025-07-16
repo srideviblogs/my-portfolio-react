@@ -32,7 +32,7 @@ const About = () => {
             About Me
           </h2>
           <p className="text-gray-800 text-lg leading-relaxed mb-4">
-            Hello! I'm <span className="text-pink-500 font-semibold">Sridevi Velpula</span>, a dedicated and results-driven <span className="font-semibold">DevOps Engineer</span> with a passion for building scalable infrastructure and automating deployments.
+            Hello! I'm <span className="text-tealcustom font-semibold">Sridevi Velpula</span>, a dedicated and results-driven <span className="font-semibold">DevOps Engineer</span> with a passion for building scalable infrastructure and automating deployments.
           </p>
           <p className="text-gray-800 text-lg leading-relaxed">
             I specialize in tools like <span className="font-medium text-black">AWS, Terraform, Docker, Kubernetes, Jenkins, and Python</span>, and I’m driven by efficiency, clean automation, and continuous learning. Let's build something awesome together!
