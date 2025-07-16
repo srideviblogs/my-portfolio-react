@@ -8,7 +8,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full z-20 bg-black text-white shadow-lg">
+    <nav className="fixed w-full z-20 bg-tealcustom text-white shadow-lg">
       <div className="container mx-auto flex justify-between items-center p-4">
         <h1 className="text-2xl font-bold">Sridevi Velpula</h1>
 
