@@ -18,8 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  }
-}
+  },
   "keywords": [
     "portfolio",
     "react",
@@ -29,7 +28,7 @@
   "author": "Sridevi Velpula",
   "license": "MIT",
   "engines": {
-  "node": "18.x",
-  "npm": ">=8"
+    "node": "18.x",
+    "npm": ">=8"
   }
 }
