@@ -1,0 +1,22 @@
+/* src/components/Navbar.css */
+header {
+  background-color: #333;
+  padding: 1rem;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
