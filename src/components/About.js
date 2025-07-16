@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <section id="about" className="bg-white min-h-screen flex items-center py-20 px-4">
-      <div className="max-w-6xl w-full mx-auto bg-white shadow-xl rounded-lg p-8 md:p-16 flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-7xl w-full mx-auto bg-white shadow-2xl rounded-2xl p-10 md:p-20 flex flex-col md:flex-row items-center gap-14">
         
-        {/* Left: Large Profile Image */}
+        {/* Left: Profile Image */}
         <motion.div
           className="w-full md:w-1/2 flex justify-center"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -16,11 +16,11 @@ const About = () => {
           <img
             src="https://avatars.githubusercontent.com/u/110302219?v=4"
             alt="Sridevi Velpula"
-            className="rounded-2xl w-[300px] h-[300px] object-cover border-4 border-pink-500 shadow-lg"
+            className="rounded-2xl w-[360px] h-[360px] object-cover border-4 border-pink-500 shadow-lg"
           />
         </motion.div>
 
-        {/* Right: Intro Text */}
+        {/* Right: Text */}
         <motion.div
           className="w-full md:w-1/2"
           initial={{ opacity: 0, y: 40 }}
