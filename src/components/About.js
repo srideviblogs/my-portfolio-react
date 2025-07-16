@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about" className="bg-white min-h-screen flex items-center px-4 py-20">
-      <div className="w-full max-w-7xl mx-auto bg-white shadow-2xl rounded-3xl p-10 md:p-20 flex flex-col md:flex-row items-center gap-14">
+    <section id="about" className="bg-white min-h-screen w-full flex items-center px-4 py-16 md:py-24">
+      <div className="w-full max-w-[90rem] mx-auto flex flex-col md:flex-row items-center justify-between gap-20">
         
-        {/* Left: Large Image */}
+        {/* Profile Image */}
         <motion.div
-          className="w-full md:w-1/2 flex justify-center"
+          className="flex justify-center md:w-1/2"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -16,13 +16,13 @@ const About = () => {
           <img
             src="https://avatars.githubusercontent.com/u/110302219?v=4"
             alt="Sridevi Velpula"
-            className="rounded-2xl w-[350px] h-[350px] object-cover border-4 border-pink-500 shadow-lg"
+            className="rounded-2xl w-[380px] h-[380px] object-cover border-4 border-pink-500"
           />
         </motion.div>
 
-        {/* Right: Text */}
+        {/* About Text */}
         <motion.div
-          className="w-full md:w-1/2"
+          className="md:w-1/2"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
