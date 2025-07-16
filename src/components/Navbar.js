@@ -15,7 +15,7 @@ const Navbar = () => {
         <ul className="hidden md:flex gap-6 uppercase">
           {links.map(link => (
             <li key={link}>
-              <a href={`#${link}`} className="hover:text-pink-400">{link}</a>
+              <a href={`#${link}`} className="hover:border-tealcustom">{link}</a>
             </li>
           ))}
         </ul>
@@ -26,7 +26,7 @@ const Navbar = () => {
 
         {open && (
           <motion.ul
-            className="absolute top-16 left-0 w-full bg-black flex flex-col items-center py-6 space-y-6"
+            className="absolute top-16 left-0 w-full bg-tealcustom flex flex-col items-center py-6 space-y-6"
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -36,7 +36,7 @@ const Navbar = () => {
                 <a
                   href={`#${link}`}
                   onClick={() => setOpen(false)}
-                  className="text-xl hover:text-pink-400"
+                  className="text-xl hover:border-tealcustom"
                 >
                   {link}
                 </a>
