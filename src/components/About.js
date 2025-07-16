@@ -22,7 +22,7 @@ const About = () => {
         >
           <h2 className="text-3xl font-semibold mb-4">About Me</h2>
           <p className="text-gray-300 leading-relaxed">
-            I’m Sridevi Velpula, a passionate frontend developer focused on building beautiful and functional web experiences. I enjoy turning complex problems into elegant solutions using modern web technologies like React, Tailwind, and JavaScript.
+            I’m Sridevi Velpula, a passionate DevOps Engineer.
           </p>
         </motion.div>
       </div>
