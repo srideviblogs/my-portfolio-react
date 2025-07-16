@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-900 to-black text-white">
+    <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-900 to-black text-white px-4">
       <motion.h1
         className="text-5xl md:text-6xl font-bold mb-4"
         initial={{ opacity: 0, y: -40 }}
