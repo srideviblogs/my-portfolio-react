@@ -10,9 +10,9 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-20 bg-tealcustom text-white shadow-lg h-20 flex items-center">
       <div className="container mx-auto flex justify-between items-center p-4">
-        <h1 className="text-2xl font-bold">Sridevi Velpula</h1>
+        <h1 className="text-3xl font-bold">Sridevi Velpula</h1>
 
-        <ul className="hidden md:flex gap-6 uppercase">
+        <ul className="hidden md:flex gap-8 uppercase text-lg font-medium">
           {links.map(link => (
             <li key={link}>
               <a href={`#${link}`} className="hover:border-tealcustom">{link}</a>
