@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about" className="bg-white min-h-screen flex items-center py-20 px-4">
-      <div className="max-w-7xl w-full mx-auto bg-white shadow-2xl rounded-2xl p-10 md:p-20 flex flex-col md:flex-row items-center gap-14">
+    <section id="about" className="bg-white min-h-screen flex items-center py-12 px-4">
+      <div className="max-w-[90rem] w-full mx-auto bg-white shadow-2xl rounded-3xl p-12 md:p-24 flex flex-col md:flex-row items-center gap-20">
+
         
         {/* Left: Profile Image */}
         <motion.div
