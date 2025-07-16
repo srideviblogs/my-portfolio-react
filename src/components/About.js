@@ -17,7 +17,7 @@ const About = () => {
           <img
             src="https://avatars.githubusercontent.com/u/110302219?v=4"
             alt="Sridevi Velpula"
-            className="rounded-2xl w-[360px] h-[360px] object-cover border-4 border-pink-500 shadow-lg"
+            className="rounded-2xl w-[360px] h-[360px] object-cover border-4 border-tealcustom shadow-lg"
           />
         </motion.div>
 
