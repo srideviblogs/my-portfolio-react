@@ -2,7 +2,7 @@
   "name": "my-portfolio-react",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://srideviblogs.github.io/my-portfolio-react",
+  "homepage": ".",
   "description": "Sridevi Velpula's Portfolio built with React",
   "main": "src/index.js",
   "scripts": {
