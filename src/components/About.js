@@ -28,7 +28,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold text-black mb-6 border-b-4 border-pink-500 inline-block">
+          <h2 className="text-4xl font-bold text-black mb-6 border-b-4 border-tealcustom inline-block">
             About Me
           </h2>
           <p className="text-gray-800 text-lg leading-relaxed mb-4">
