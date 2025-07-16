@@ -15,7 +15,7 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="bg-tealcustom text-white py-16 px-6">
+    <section id="portfolio" className="bg-gray-900 text-white py-16 px-6">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-semibold mb-12">Projects</h2>
         <div className="grid gap-8 md:grid-cols-2">
@@ -25,10 +25,10 @@ const Portfolio = () => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-tealcustom border border-tealcustom rounded-xl p-6 hover:tealcustom hover:shadow-md transition"
+              className="bg-black border border-gray-700 rounded-xl p-6 hover:border-pink-500 hover:shadow-md transition"
             >
-              <h3 className="text-xl font-bold mb-2 text-tealcustom">{project.title}</h3>
-              <p className="text-tealcustom">{project.description}</p>
+              <h3 className="text-xl font-bold mb-2 text-pink-400">{project.title}</h3>
+              <p className="text-gray-300">{project.description}</p>
             </a>
           ))}
         </div>
