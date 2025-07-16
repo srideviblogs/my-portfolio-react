@@ -20,7 +20,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.6 }}
       >
-        A Passionate Web Developer
+        DevOps Engineer
       </motion.h2>
 
       <motion.div
