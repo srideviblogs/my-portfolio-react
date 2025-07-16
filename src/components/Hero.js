@@ -1,42 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import './Hero.css';
+import React from "react";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Hero = () => {
-  const phrases = ["DevOps Engineer", "Cloud Enthusiast", "Open Source Contributor"];
-  const [text, setText] = useState('');
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [forward, setForward] = useState(true);
-
-  useEffect(() => {
-    if (subIndex === phrases[index].length + 1 && forward) {
-      setTimeout(() => setForward(false), 1000);
-      return;
-    }
-    if (subIndex === 0 && !forward) {
-      setForward(true);
-      setIndex((index + 1) % phrases.length);
-      return;
-    }
-
-    const timeout = setTimeout(() => {
-      setSubIndex(prev => prev + (forward ? 1 : -1));
-      setText(phrases[index].substring(0, subIndex));
-    }, forward ? 150 : 50);
-
-    return () => clearTimeout(timeout);
-  }, [subIndex, index, forward]);
-
   return (
-    <section id="home" className="hero">
-      <div className="hero-content">
-        <h1>Hi, I'm Sridevi Velpula</h1>
-        <p className="typing">{text}</p>
-        <img src="assets/profile.jpg" alt="Sridevi Velpula" className="profile-pic" />
-      </div>
+    <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-900 to-black text-white">
+      <motion.h1
+        className="text-5xl md:text-6xl font-bold mb-4"
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        Hi, I'm Sridevi Velpula
+      </motion.h1>
+
+      <motion.h2
+        className="text-xl md:text-2xl text-gray-300 mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+      >
+        A Passionate Web Developer
+      </motion.h2>
+
+      <motion.div
+        className="flex gap-6 text-2xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+      >
+        <a href="https://github.com/srideviblogs" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">
+          <FaGithub />
+        </a>
+        <a href="https://linkedin.com/in/sridevi-velpula" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
+          <FaLinkedin />
+        </a>
+        <a href="mailto:sridevivelpula@gmail.com" className="hover:text-green-400">
+          <FaEnvelope />
+        </a>
+      </motion.div>
     </section>
   );
 };
 
 export default Hero;
-
