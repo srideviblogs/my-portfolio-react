@@ -1,25 +1,25 @@
 /* AwardsCertifications.css */
 
+section#awards-certifications {
+  /* full black background already from Tailwind, so minimal CSS needed */
+}
+
 button {
   transition: background-color 0.3s ease, color 0.3s ease;
   outline: none;
 }
 
 button:focus {
-  outline: 2px solid #14b8a6; /* teal outline on focus */
+  outline: 2px solid #14b8a6; /* teal outline on focus for accessibility */
   outline-offset: 2px;
 }
 
 ul {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
+  margin: 0;
 }
 
-li {
-  /* This is already styled with Tailwind classes */
-}
-
-/* Optional: Hover effect on links */
 a:hover {
   text-decoration: underline;
 }
