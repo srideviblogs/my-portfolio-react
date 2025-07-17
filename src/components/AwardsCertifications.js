@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import "./AwardsCertifications.css";
 
 const awards = [
   {
@@ -35,15 +36,9 @@ const AwardsCertifications = () => {
   const [activeTab, setActiveTab] = useState("awards");
 
   return (
-    <section
-      id="awards-certifications"
-      className="bg-black text-white py-20"
-    >
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Centered heading without underline */}
-        <h2 className="text-4xl font-bold text-center mb-12">
-          Awards & Certifications
-        </h2>
+    <section id="awards-certifications" className="bg-black text-white py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-12">Awards & Certifications</h2>
 
         {/* Tabs */}
         <div className="flex justify-center gap-8 mb-12">
@@ -77,33 +72,23 @@ const AwardsCertifications = () => {
           transition={{ duration: 0.4 }}
         >
           {activeTab === "awards" && (
-            <ul className="space-y-8">
+            <div className="awards-grid">
               {awards.map((award, idx) => (
-                <li
-                  key={idx}
-                  className="bg-gray-900 p-6 rounded-2xl shadow-lg"
-                >
-                  <h3 className="text-xl font-semibold text-tealcustom">
-                    {award.title}
-                  </h3>
-                  <p className="text-gray-400 italic mb-2">{award.year}</p>
+                <div key={idx} className="card p-6 rounded-2xl shadow-lg bg-gray-900">
+                  <h3 className="text-xl font-semibold text-tealcustom mb-2">{award.title}</h3>
+                  <p className="text-gray-400 italic mb-4">{award.year}</p>
                   <p className="text-gray-300">{award.description}</p>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
 
           {activeTab === "certifications" && (
-            <ul className="space-y-8">
+            <div className="certifications-grid">
               {certifications.map((cert, idx) => (
-                <li
-                  key={idx}
-                  className="bg-gray-900 p-6 rounded-2xl shadow-lg"
-                >
-                  <h3 className="text-xl font-semibold text-tealcustom">
-                    {cert.title}
-                  </h3>
-                  <p className="text-gray-400 italic mb-2">
+                <div key={idx} className="card p-6 rounded-2xl shadow-lg bg-gray-900">
+                  <h3 className="text-xl font-semibold text-tealcustom mb-2">{cert.title}</h3>
+                  <p className="text-gray-400 italic mb-1">
                     {cert.year} - {cert.issuer}
                   </p>
                   {cert.link && (
@@ -116,9 +101,9 @@ const AwardsCertifications = () => {
                       View Certificate
                     </a>
                   )}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
         </motion.div>
       </div>
