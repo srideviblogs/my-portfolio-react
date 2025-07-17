@@ -52,18 +52,18 @@ const Resume = () => {
 
       {/* Education */}
       <div className="mb-16">
-        <h3 className="text-3xl font-semibold mb-8 border-b border-pink-500 pb-2">Education</h3>
+        <h3 className="text-3xl font-semibold mb-8 border-b border-tealcustom pb-2">Education</h3>
         <div className="space-y-8">
           {education.map((edu, idx) => (
             <motion.div
               key={idx}
-              className="pl-8 relative border-l-4 border-pink-500"
+              className="pl-8 relative border-l-4 border-tealcustom"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.2 }}
             >
-              <div className="absolute -left-3 top-2 w-6 h-6 bg-pink-500 rounded-full"></div>
+              <div className="absolute -left-3 top-2 w-6 h-6 bg-tealcustom rounded-full"></div>
               <h4 className="text-xl font-semibold">{edu.degree}</h4>
               <p className="text-gray-400">{edu.school}</p>
             </motion.div>
@@ -73,7 +73,7 @@ const Resume = () => {
 
       {/* Experience */}
       <div>
-        <h3 className="text-3xl font-semibold mb-8 border-b border-pink-500 pb-2">Experience</h3>
+        <h3 className="text-3xl font-semibold mb-8 border-b border-tealcustom pb-2">Experience</h3>
         <div className="space-y-12">
           {experience.map((job, idx) => (
             <motion.div
@@ -84,8 +84,8 @@ const Resume = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.2 }}
             >
-              <div className="absolute -left-3 top-2 w-6 h-6 bg-pink-500 rounded-full"></div>
-              <h4 className="text-xl font-semibold text-pink-400">{job.title}</h4>
+              <div className="absolute -left-3 top-2 w-6 h-6 bg-tealcustom rounded-full"></div>
+              <h4 className="text-xl font-semibold text-tealcustom">{job.title}</h4>
               <p className="text-gray-400 italic mb-2">{job.date} | {job.location}</p>
               <ul className="list-disc list-inside text-gray-300 space-y-1">
                 {job.details.map((point, i) => (
