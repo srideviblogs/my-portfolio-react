@@ -18,15 +18,15 @@ import {
 
 const skills = [
   { icon: <FaAws />, title: "AWS" },
-  { icon: <SiTerraform />, title: "Azure" },
-  { icon: <FaDocker />, title: "Kubernetes" },
-  { icon: <SiKubernetes />, title: "Docker" },
+  { icon: <SiTerraform />, title: "Terraform" },
+  { icon: <FaDocker />, title: "Docker" },
+  { icon: <SiKubernetes />, title: "Kubernetes" },
   { icon: <SiJenkins />, title: "Jenkins" },
-  { icon: <FaPython />, title: "Terraform" },
+  { icon: <FaPython />, title: "Python" },
   { icon: <SiGit />, title: "Git" },
   { icon: <FaLinux />, title: "Linux" },
-  { icon: <FaGithub />, title: "ArgoCD" },
-  { icon: <SiPrometheus />, title: "Prometheus" },
+  { icon: <FaGithub />, title: "GitHub Actions" },
+  { icon: <SiPrometheus />, title: "Monitoring" },
 ];
 
 const Expertise = () => {
@@ -37,21 +37,23 @@ const Expertise = () => {
         <p className="expertise-subtitle">
           My toolkit for delivering scalable, secure, and efficient cloud-native solutions.
         </p>
-        <div className="expertise-grid">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={index}
-              className="expertise-card"
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-            >
-              <div className="expertise-icon">{skill.icon}</div>
-              <p className="expertise-title-text">{skill.title}</p>
-            </motion.div>
-          ))}
+        <div className="expertise-marquee" aria-label="Scrolling list of skills">
+          <div className="expertise-track">
+            {skills.concat(skills).map((skill, index) => (
+              <motion.div
+                key={index}
+                className="expertise-card"
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+              >
+                <div className="expertise-icon">{skill.icon}</div>
+                <p className="expertise-title-text">{skill.title}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
