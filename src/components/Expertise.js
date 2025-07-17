@@ -18,10 +18,10 @@ import {
 
 const skills = [
   { icon: <FaAws />, title: "AWS" },
-  { icon: <SiAzuredevops />, title: "Azure" },
+  { icon: <FaMicrosoft />, title: "Azure" },
   { icon: <SiKubernetes />, title: "Kubernetes" },
   { icon: <FaDocker />, title: "Docker" },
-  { icon: <SiArgocd />, title: "ArgoCD" },
+  { icon: <FaCode />, title: "ArgoCD" },
   { icon: <SiTerraform />, title: "Terraform" },
   { icon: <FaPython />, title: "Python" },
   { icon: <SiJenkins />, title: "Jenkins" },
