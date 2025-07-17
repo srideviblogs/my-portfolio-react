@@ -31,7 +31,7 @@ const About = () => {
         {/* Text Content */}
         <div className="w-full md:w-2/3 space-y-8">
           {/* Intro */}
-          <div className="border-l-4 border-tealcustom pl-4">
+          <div>
             <h3 className="text-2xl font-semibold text-tealcustom mb-2">Hi, I'm Sridevi Velpula</h3>
             <p className="text-gray-300 text-lg leading-relaxed">
               A passionate <span className="font-semibold text-white">DevOps Engineer</span> with a strong background in automating infrastructure, cloud technologies, and continuous integration pipelines.
@@ -39,7 +39,7 @@ const About = () => {
           </div>
 
           {/* Skills Summary */}
-          <div className="border-l-4 border-tealcustom pl-4">
+          <div>
             <h4 className="text-xl font-semibold text-white mb-2">What I Do</h4>
             <ul className="list-disc list-inside text-gray-300 space-y-1">
               <li>Cloud infrastructure management (AWS, Azure)</li>
@@ -52,7 +52,7 @@ const About = () => {
           </div>
 
           {/* Motivation */}
-          <div className="border-l-4 border-tealcustom pl-4">
+          <div>
             <h4 className="text-xl font-semibold text-white mb-2">My Drive</h4>
             <p className="text-gray-300 leading-relaxed">
               I love solving complex infrastructure problems and enabling smooth developer workflows. I'm committed to clean automation, performance optimization, and delivering scalable solutions.
