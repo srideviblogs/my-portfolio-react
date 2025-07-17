@@ -78,7 +78,7 @@ const Resume = () => {
           {experience.map((job, idx) => (
             <motion.div
               key={idx}
-              className="pl-8 relative border-l-4 border-pink-500"
+              className="pl-8 relative border-l-4 border-tealcustom"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
