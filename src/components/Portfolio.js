@@ -6,20 +6,17 @@ const projects = [
     title: "My Blog",
     description: "A personal blog built with Jekyll and GitHub Pages.",
     image: "https://via.placeholder.com/400x300?text=My+Blog",
-    github: "https://github.com/srideviblogs/my-blog",
-    demo: "https://srideviblogs.github.io",
+    link: "https://srideviblogs.github.io",
   },
   {
     title: "React Portfolio",
     description: "This portfolio site built with React, Tailwind CSS & Framer Motion.",
     image: "https://via.placeholder.com/400x300?text=React+Portfolio",
-    github: "https://github.com/srideviblogs/my-portfolio-react",
-    demo: "https://srideviv.netlify.app",
+    link: "https://srideviv.netlify.app",
   },
 ];
 
 const Portfolio = () => {
-  // track which card is flipped/open
   const [activeIndex, setActiveIndex] = useState(null);
 
   return (
@@ -48,9 +45,15 @@ const Portfolio = () => {
               transition={{ delay: idx * 0.2, duration: 0.6 }}
             >
               {/* Card container */}
-              <div
-                className={`relative w-full h-full cursor-pointer select-none`}
-                onClick={() => setActiveIndex(isActive ? null : idx)}
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-full h-full block cursor-pointer select-none"
+                onClick={(e) => {
+                  e.preventDefault(); // prevent immediate navigation
+                  setActiveIndex(isActive ? null : idx);
+                }}
               >
                 {/* Front Side */}
                 <motion.div
@@ -71,39 +74,14 @@ const Portfolio = () => {
 
                 {/* Back Side */}
                 <motion.div
-                  className={`absolute inset-0 rounded-2xl shadow-xl overflow-hidden bg-gray-900 border border-tealcustom p-6 flex flex-col justify-between text-gray-300 ${
+                  className={`absolute inset-0 rounded-2xl shadow-xl overflow-hidden bg-gray-900 border border-tealcustom p-6 flex items-center justify-center text-center text-gray-300 ${
                     isActive ? "rotate-y-0" : "rotate-y-180"
                   } backface-hidden`}
-                  style={{
-                    transformStyle: "preserve-3d",
-                    transition: "transform 0.6s",
-                  }}
+                  style={{ transformStyle: "preserve-3d", transition: "transform 0.6s" }}
                 >
-                  <div>
-                    <h3 className="text-tealcustom text-2xl font-semibold mb-4">{project.title}</h3>
-                    <p className="mb-6">{project.description}</p>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-tealcustom text-black px-4 py-2 rounded hover:bg-teal-600 transition"
-                    >
-                      GitHub
-                    </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gray-700 px-4 py-2 rounded hover:bg-gray-600 transition"
-                    >
-                      Live Demo
-                    </a>
-                  </div>
+                  <p>{project.description}</p>
                 </motion.div>
-              </div>
+              </a>
             </motion.div>
           );
         })}
