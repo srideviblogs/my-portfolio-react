@@ -19,17 +19,11 @@ const projects = [
 ];
 
 const Portfolio = () => {
-  const [flippedIndex, setFlippedIndex] = useState(null);
-
-  const toggleFlip = (index) => {
-    setFlippedIndex(flippedIndex === index ? null : index);
-  };
+  // track which card is flipped/open
+  const [activeIndex, setActiveIndex] = useState(null);
 
   return (
-    <section
-      id="portfolio"
-      className="bg-black text-white py-20 px-6 md:px-28"
-    >
+    <section id="portfolio" className="bg-black text-white py-20 px-6 md:px-28">
       <motion.h2
         className="text-4xl font-bold text-center mb-12"
         initial={{ opacity: 0, y: 20 }}
@@ -40,47 +34,56 @@ const Portfolio = () => {
         Projects
       </motion.h2>
 
-      <div className="grid gap-10 md:grid-cols-2 justify-center">
+      <div className="grid gap-10 md:grid-cols-2">
         {projects.map((project, idx) => {
-          const isFlipped = flippedIndex === idx;
+          const isActive = activeIndex === idx;
+
           return (
             <motion.div
               key={idx}
-              className="relative w-full max-w-sm h-72 cursor-pointer perspective"
+              className="relative w-full h-72 perspective"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.2, duration: 0.6 }}
-              onClick={() => toggleFlip(idx)}
             >
-              {/* Card inner container for flip */}
+              {/* Card container */}
               <div
-                className={`relative w-full h-full duration-700 transform-style-preserve-3d ${
-                  isFlipped ? "rotate-y-180" : ""
-                }`}
+                className={`relative w-full h-full cursor-pointer select-none`}
+                onClick={() => setActiveIndex(isActive ? null : idx)}
               >
-                {/* Front side */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 backface-hidden flex flex-col justify-end">
+                {/* Front Side */}
+                <motion.div
+                  className={`absolute inset-0 rounded-2xl shadow-xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 ${
+                    isActive ? "rotate-y-180" : "rotate-y-0"
+                  } backface-hidden`}
+                  style={{ transformStyle: "preserve-3d", transition: "transform 0.6s" }}
+                >
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="p-4 bg-black bg-opacity-60">
-                    <h3 className="text-tealcustom text-xl font-semibold">
-                      {project.title}
-                    </h3>
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-4">
+                    <h3 className="text-tealcustom text-xl font-semibold">{project.title}</h3>
                   </div>
-                </div>
+                </motion.div>
 
-                {/* Back side */}
-                <div className="absolute inset-0 rounded-2xl bg-gray-900 border border-tealcustom p-6 flex flex-col justify-between text-gray-300 rotate-y-180 backface-hidden">
+                {/* Back Side */}
+                <motion.div
+                  className={`absolute inset-0 rounded-2xl shadow-xl overflow-hidden bg-gray-900 border border-tealcustom p-6 flex flex-col justify-between text-gray-300 ${
+                    isActive ? "rotate-y-0" : "rotate-y-180"
+                  } backface-hidden`}
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transition: "transform 0.6s",
+                  }}
+                >
                   <div>
-                    <h3 className="text-tealcustom text-2xl font-semibold mb-4">
-                      {project.title}
-                    </h3>
+                    <h3 className="text-tealcustom text-2xl font-semibold mb-4">{project.title}</h3>
                     <p className="mb-6">{project.description}</p>
                   </div>
+
                   <div className="flex gap-4">
                     <a
                       href={project.github}
@@ -99,7 +102,7 @@ const Portfolio = () => {
                       Live Demo
                     </a>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           );
