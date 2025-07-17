@@ -6,57 +6,55 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="h-screen bg-black text-white flex flex-col justify-center items-center px-4"
+      className="h-screen flex flex-col justify-center items-center bg-black text-white px-4"
     >
       <motion.h1
-        className="text-4xl sm:text-6xl font-bold text-center mb-4"
-        initial={{ opacity: 0, y: -30 }}
+        className="text-5xl sm:text-7xl font-bold mb-4 text-center bg-gradient-to-r from-cyan-400 to-teal-500 text-transparent bg-clip-text"
+        initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500">
-          Hi, I'm Sridevi Velpula
-        </span>
+        Sridevi Velpula
       </motion.h1>
 
-      <motion.p
-        className="text-lg sm:text-xl text-gray-300 text-center max-w-xl"
+      <motion.h2
+        className="text-xl sm:text-3xl text-gray-300 mt-2 font-mono"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
       >
-        A DevOps Engineer passionate about automation, cloud infrastructure, and continuous learning.
-      </motion.p>
+        DevOps Engineer | Cloud Enthusiast | Automation Lover
+      </motion.h2>
 
       <motion.div
-        className="flex gap-6 mt-6"
+        className="flex items-center gap-6 mt-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.9 }}
+        transition={{ delay: 1, duration: 0.8 }}
       >
         <a
           href="https://github.com/srideviblogs"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition"
+          className="text-gray-400 hover:text-cyan-400 transition text-2xl"
         >
-          <FaGithub size={28} />
+          <FaGithub />
         </a>
         <a
           href="https://www.linkedin.com/in/sridevi-pochu"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition"
+          className="text-gray-400 hover:text-cyan-400 transition text-2xl"
         >
-          <FaLinkedin size={28} />
+          <FaLinkedin />
         </a>
         <a
-          href="https://twitter.com/yourhandle"
+          href="https://twitter.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition"
+          className="text-gray-400 hover:text-cyan-400 transition text-2xl"
         >
-          <FaTwitter size={28} />
+          <FaTwitter />
         </a>
       </motion.div>
     </section>
