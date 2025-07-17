@@ -1,23 +1,26 @@
-/* AwardsCertifications.css */
-
-section#awards-certifications {
-  /* full black background already from Tailwind, so minimal CSS needed */
+.awards-grid,
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
-button {
-  transition: background-color 0.3s ease, color 0.3s ease;
-  outline: none;
+.card {
+  background-color: #1f2937; /* gray-900 */
+  padding: 1.5rem;
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: default;
 }
 
-button:focus {
-  outline: 2px solid #14b8a6; /* teal outline on focus for accessibility */
-  outline-offset: 2px;
+.card:hover {
+  background-color: #374151; /* gray-800 */
+  transform: translateY(-5px);
 }
 
-ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
+h3 {
+  font-weight: 600;
 }
 
 a:hover {
