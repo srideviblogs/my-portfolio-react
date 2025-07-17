@@ -14,96 +14,12 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  perspective: 1000px; /* enable 3D perspective for flip effect */
 }
 
-/* Flip card container */
 .portfolio-item {
   width: 300px;
-  height: 400px; /* fixed height for flipping */
   border: 1px solid #ddd;
   padding: 1rem;
   border-radius: 8px;
   background-color: #fafafa;
-  position: relative;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease;
-}
-
-/* Front and Back sides */
-.portfolio-item .front,
-.portfolio-item .back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Front side */
-.portfolio-item .front {
-  background-color: #fafafa;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border: 1px solid #ddd;
-}
-
-.portfolio-item .front img {
-  width: 100%;
-  height: 75%;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
-}
-
-.portfolio-item .front .title {
-  padding: 0.75rem 1rem;
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: #333;
-  background-color: #fff;
-  border-radius: 0 0 8px 8px;
-  text-align: center;
-}
-
-/* Back side */
-.portfolio-item .back {
-  background-color: #f9f9f9;
-  border: 1px solid #0d9488; /* teal color */
-  color: #0d9488;
-  transform: rotateY(180deg);
-  padding: 1rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* When flipped, rotate the card */
-.portfolio-item.flipped {
-  transform: rotateY(180deg);
-}
-
-/* Links on back */
-.portfolio-item .back .links {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.portfolio-item .back .links a {
-  padding: 0.5rem 1.25rem;
-  background-color: #0d9488;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.portfolio-item .back .links a:hover {
-  background-color: #0f766e;
 }
