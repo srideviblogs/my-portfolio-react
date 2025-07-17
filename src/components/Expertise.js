@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaAws, FaDocker, FaPython, FaGit, FaLinux } from "react-icons/fa";
+import { SiAzuredevops, SiKubernetes, SiTerraform, SiJenkins, SiAnsible, SiPrometheus, SiGrafana, SiArgocd } from "react-icons/si";
 import "./Expertise.css";
 import {
   FaAws,
@@ -18,15 +20,18 @@ import {
 
 const skills = [
   { icon: <FaAws />, title: "AWS" },
-  { icon: <SiTerraform />, title: "Terraform" },
-  { icon: <FaDocker />, title: "Docker" },
+  { icon: <SiAzuredevops />, title: "Azure" },
   { icon: <SiKubernetes />, title: "Kubernetes" },
-  { icon: <SiJenkins />, title: "Jenkins" },
+  { icon: <FaDocker />, title: "Docker" },
+  { icon: <SiArgocd />, title: "ArgoCD" },
+  { icon: <SiTerraform />, title: "Terraform" },
   { icon: <FaPython />, title: "Python" },
-  { icon: <SiGit />, title: "Git" },
+  { icon: <SiJenkins />, title: "Jenkins" },
+  { icon: <FaGit />, title: "Git" },
+  { icon: <SiAnsible />, title: "Ansible" },
+  { icon: <SiPrometheus />, title: "Prometheus" },
+  { icon: <SiGrafana />, title: "Grafana" },
   { icon: <FaLinux />, title: "Linux" },
-  { icon: <FaGithub />, title: "GitHub Actions" },
-  { icon: <SiPrometheus />, title: "Monitoring" },
 ];
 
 const Expertise = () => {
