@@ -1,0 +1,25 @@
+/* AwardsCertifications.css */
+
+button {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  outline: none;
+}
+
+button:focus {
+  outline: 2px solid #14b8a6; /* teal outline on focus */
+  outline-offset: 2px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  /* This is already styled with Tailwind classes */
+}
+
+/* Optional: Hover effect on links */
+a:hover {
+  text-decoration: underline;
+}
