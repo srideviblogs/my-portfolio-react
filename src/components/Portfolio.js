@@ -23,13 +23,11 @@ const Portfolio = () => {
   const handleNext = () => setIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
 
   return (
-    <section id="portfolio" className="bg-gray-50 py-20 px-6">
+    <section id="portfolio" className="bg-black text-white py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-black mb-10 border-b-4 border-tealcustom inline-block">
-          Projects
-        </h2>
+        <h2 className="text-4xl font-bold mb-10 text-white">Projects</h2>
 
-        <div className="relative bg-white rounded-3xl p-8 shadow-md border border-gray-200">
+        <div className="relative bg-gray-900 rounded-3xl p-8 shadow-md border border-gray-800">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -39,7 +37,7 @@ const Portfolio = () => {
               transition={{ duration: 0.5 }}
             >
               <h3 className="text-2xl font-semibold text-tealcustom mb-4">{project.title}</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+              <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
               <a
                 href={project.link}
                 target="_blank"
@@ -51,15 +49,15 @@ const Portfolio = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Arrows */}
+          {/* Arrows */}
           <div className="absolute inset-y-0 left-0 flex items-center pl-4">
             <button onClick={handlePrev} aria-label="Previous project">
-              <ChevronLeft className="h-6 w-6 text-gray-500 hover:text-tealcustom" />
+              <ChevronLeft className="h-6 w-6 text-gray-400 hover:text-tealcustom" />
             </button>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-4">
             <button onClick={handleNext} aria-label="Next project">
-              <ChevronRight className="h-6 w-6 text-gray-500 hover:text-tealcustom" />
+              <ChevronRight className="h-6 w-6 text-gray-400 hover:text-tealcustom" />
             </button>
           </div>
         </div>
@@ -71,7 +69,7 @@ const Portfolio = () => {
               key={i}
               onClick={() => setIndex(i)}
               className={`w-3 h-3 rounded-full ${
-                i === index ? "bg-tealcustom" : "bg-gray-300"
+                i === index ? "bg-tealcustom" : "bg-gray-600"
               }`}
               aria-label={`Go to project ${i + 1}`}
             />
