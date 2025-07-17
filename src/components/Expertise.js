@@ -43,10 +43,7 @@ const Expertise = () => {
     <section id="expertise" className="expertise-section">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="expertise-title">Expertise</h2>
-        <p className="expertise-subtitle">
-          My toolkit for delivering scalable, secure, and efficient cloud-native solutions.
-        </p>
-
+    
         <div className="expertise-marquee" aria-label="Scrolling list of skills">
           <div className="expertise-track">
             {skills.concat(skills).map((skill, index) => (
