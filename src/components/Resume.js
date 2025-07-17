@@ -47,7 +47,7 @@ const education = [
 
 const Resume = () => {
   return (
-    <section id="resume" className="bg-black text-white py-20 px-6 max-w-5xl mx-auto">
+    <section id="resume" className="bg-black text-white py-16 px-6 text-center">
       <h2 className="text-4xl font-bold text-center mb-12">Resume</h2>
 
       {/* Education */}
