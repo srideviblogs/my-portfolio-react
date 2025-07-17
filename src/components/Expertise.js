@@ -18,15 +18,15 @@ import {
 
 const skills = [
   { icon: <FaAws />, title: "AWS" },
-  { icon: <SiTerraform />, title: "Terraform" },
-  { icon: <FaDocker />, title: "Docker" },
-  { icon: <SiKubernetes />, title: "Kubernetes" },
+  { icon: <SiTerraform />, title: "Azure" },
+  { icon: <FaDocker />, title: "Kubernetes" },
+  { icon: <SiKubernetes />, title: "Docker" },
   { icon: <SiJenkins />, title: "Jenkins" },
-  { icon: <FaPython />, title: "Python" },
+  { icon: <FaPython />, title: "Terraform" },
   { icon: <SiGit />, title: "Git" },
   { icon: <FaLinux />, title: "Linux" },
-  { icon: <FaGithub />, title: "GitHub Actions" },
-  { icon: <SiPrometheus />, title: "Monitoring" },
+  { icon: <FaGithub />, title: "ArgoCD" },
+  { icon: <SiPrometheus />, title: "Prometheus" },
 ];
 
 const Expertise = () => {
@@ -34,6 +34,9 @@ const Expertise = () => {
     <section id="expertise" className="expertise-section">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="expertise-title">Expertise</h2>
+        <p className="expertise-subtitle">
+          My toolkit for delivering scalable, secure, and efficient cloud-native solutions.
+        </p>
         <div className="expertise-grid">
           {skills.map((skill, index) => (
             <motion.div
