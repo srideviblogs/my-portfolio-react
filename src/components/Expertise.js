@@ -1,7 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaAws, FaDocker, FaPython, FaGit, FaLinux } from "react-icons/fa";
-import { SiAzuredevops, SiKubernetes, SiTerraform, SiJenkins, SiAnsible, SiPrometheus, SiGrafana, SiArgocd } from "react-icons/si";
 import "./Expertise.css";
 import {
   FaAws,
