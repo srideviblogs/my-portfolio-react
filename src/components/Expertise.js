@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import "./Expertise.css";
 import {
   FaAws,
   FaDocker,
@@ -33,9 +34,6 @@ const Expertise = () => {
     <section id="expertise" className="expertise-section">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="expertise-title">Expertise</h2>
-        <p className="expertise-subtitle">
-          My toolkit for delivering scalable, secure, and efficient cloud-native solutions.
-        </p>
         <div className="expertise-grid">
           {skills.map((skill, index) => (
             <motion.div
