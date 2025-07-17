@@ -72,35 +72,32 @@ const AwardsCertifications = () => {
           transition={{ duration: 0.4 }}
         >
           {activeTab === "awards" && (
-            <div className="awards-grid">
+            <div className="unique-grid awards-grid">
               {awards.map((award, idx) => (
-                <div key={idx} className="card p-6 rounded-2xl shadow-lg bg-gray-900">
-                  <h3 className="text-xl font-semibold text-tealcustom mb-2">{award.title}</h3>
-                  <p className="text-gray-400 italic mb-4">{award.year}</p>
-                  <p className="text-gray-300">{award.description}</p>
+                <div key={idx} className="unique-card unique-award">
+                  <div className="content">
+                    <h3>{award.title}</h3>
+                    <span>{award.year}</span>
+                    <p>{award.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
           )}
 
           {activeTab === "certifications" && (
-            <div className="certifications-grid">
+            <div className="unique-grid certs-grid">
               {certifications.map((cert, idx) => (
-                <div key={idx} className="card p-6 rounded-2xl shadow-lg bg-gray-900">
-                  <h3 className="text-xl font-semibold text-tealcustom mb-2">{cert.title}</h3>
-                  <p className="text-gray-400 italic mb-1">
-                    {cert.year} - {cert.issuer}
-                  </p>
-                  {cert.link && (
-                    <a
-                      href={cert.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-tealcustom hover:underline"
-                    >
-                      View Certificate
-                    </a>
-                  )}
+                <div key={idx} className="unique-card unique-cert">
+                  <div className="content">
+                    <h3>{cert.title}</h3>
+                    <span>{cert.year} - {cert.issuer}</span>
+                    {cert.link && (
+                      <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                        View Certificate
+                      </a>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
