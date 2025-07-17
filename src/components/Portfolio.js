@@ -44,7 +44,7 @@ const Portfolio = () => {
                 rel="noopener noreferrer"
                 className="text-tealcustom font-semibold hover:underline"
               >
-                🔗 View Project
+                View Project »
               </a>
             </motion.div>
           </AnimatePresence>
