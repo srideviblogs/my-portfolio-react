@@ -1,19 +1,25 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Expertise.css";
+
 import {
   FaAws,
   FaDocker,
   FaGithub,
   FaPython,
   FaLinux,
+  FaMicrosoft,
+  FaCode,
+  FaGit,
 } from "react-icons/fa";
+
 import {
   SiTerraform,
   SiKubernetes,
   SiJenkins,
-  SiGit,
   SiPrometheus,
+  SiAnsible,
+  SiGrafana,
 } from "react-icons/si";
 
 const skills = [
@@ -21,7 +27,7 @@ const skills = [
   { icon: <FaMicrosoft />, title: "Azure" },
   { icon: <SiKubernetes />, title: "Kubernetes" },
   { icon: <FaDocker />, title: "Docker" },
-  { icon: <FaCode />, title: "ArgoCD" },
+  { icon: <FaCode />, title: "ArgoCD" }, // placeholder for ArgoCD
   { icon: <SiTerraform />, title: "Terraform" },
   { icon: <FaPython />, title: "Python" },
   { icon: <SiJenkins />, title: "Jenkins" },
@@ -40,6 +46,7 @@ const Expertise = () => {
         <p className="expertise-subtitle">
           My toolkit for delivering scalable, secure, and efficient cloud-native solutions.
         </p>
+
         <div className="expertise-marquee" aria-label="Scrolling list of skills">
           <div className="expertise-track">
             {skills.concat(skills).map((skill, index) => (
@@ -47,10 +54,6 @@ const Expertise = () => {
                 key={index}
                 className="expertise-card"
                 whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: (index % skills.length) * 0.1 }}
               >
                 <div className="expertise-icon">{skill.icon}</div>
                 <p className="expertise-title-text">{skill.title}</p>
