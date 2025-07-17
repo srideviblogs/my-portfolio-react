@@ -1,5 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Cpu, Terminal, Rocket } from "lucide-react";
+
+const tools = ["AWS", "Terraform", "Docker", "Kubernetes", "Jenkins", "Python", "Azure", "GitLab CI"];
 
 const About = () => {
   return (
@@ -29,35 +32,58 @@ const About = () => {
         </motion.div>
 
         {/* Text Content */}
-        <div className="w-full md:w-2/3 space-y-8">
+        <div className="w-full md:w-2/3 space-y-10">
           {/* Intro */}
-          <div>
-            <h3 className="text-2xl font-semibold text-tealcustom mb-2">Hi, I'm Sridevi Velpula</h3>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-semibold text-tealcustom mb-2 flex items-center gap-2">
+              <Cpu className="w-6 h-6" /> Hi, I'm Sridevi Velpula
+            </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
               A passionate <span className="font-semibold text-white">DevOps Engineer</span> with a strong background in automating infrastructure, cloud technologies, and continuous integration pipelines.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Skills Summary */}
-          <div>
-            <h4 className="text-xl font-semibold text-white mb-2">What I Do</h4>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Cloud infrastructure management (AWS, Azure)</li>
-              <li>CI/CD automation with Jenkins, GitLab CI</li>
-              <li>Containerization using Docker & Kubernetes</li>
-              <li>IaC with Terraform</li>
-              <li>Scripting with Python & Shell</li>
-              <li>Monitoring & alerting (Prometheus, Grafana)</li>
-            </ul>
-          </div>
+          {/* Tools Badges */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+              <Terminal className="w-5 h-5" /> Technologies I Work With
+            </h4>
+            <div className="flex flex-wrap gap-3">
+              {tools.map((tool, idx) => (
+                <span
+                  key={idx}
+                  className="bg-tealcustom/20 text-tealcustom font-medium px-4 py-1 rounded-full text-sm border border-tealcustom"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Motivation */}
-          <div>
-            <h4 className="text-xl font-semibold text-white mb-2">My Drive</h4>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+              <Rocket className="w-5 h-5" /> My Drive
+            </h4>
             <p className="text-gray-300 leading-relaxed">
               I love solving complex infrastructure problems and enabling smooth developer workflows. I'm committed to clean automation, performance optimization, and delivering scalable solutions.
             </p>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>
