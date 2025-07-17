@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./AwardsCertifications.css";
 
 const awards = [
   {
     title: "Best Employee of the Year",
     year: "2021",
-    description: "Awarded by Virtusa for outstanding performance and dedication.",
+    description:
+      "Awarded by Virtusa for outstanding performance and dedication.",
   },
   {
     title: "Excellence in Automation",
     year: "2020",
-    description: "Recognized by Infosys for delivering innovative automation solutions.",
+    description:
+      "Recognized by Infosys for delivering innovative automation solutions.",
   },
   // Add more awards here
 ];
@@ -22,18 +24,29 @@ const certifications = [
     year: "2022",
     issuer: "Amazon Web Services",
     link: "https://www.yourcertificateurl.com/aws-solution-architect",
+    description:
+      "Comprehensive knowledge and skills in designing AWS cloud architectures.",
   },
   {
     title: "Certified Kubernetes Administrator (CKA)",
     year: "2021",
     issuer: "Cloud Native Computing Foundation",
     link: "https://www.yourcertificateurl.com/cka",
+    description:
+      "Demonstrated proficiency in Kubernetes cluster administration and management.",
   },
   // Add more certifications here
 ];
 
 const AwardsCertifications = () => {
-  const [activeTab, setActiveTab] = useState("awards");
+  const [activeTab, setActiveTab] = React.useState("awards");
+  const [expandedIndex, setExpandedIndex] = React.useState(null);
+
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
+  const items = activeTab === "awards" ? awards : certifications;
 
   return (
     <section id="awards-certifications" className="bg-black text-white py-20 px-6">
@@ -43,7 +56,10 @@ const AwardsCertifications = () => {
         {/* Tabs */}
         <div className="flex justify-center gap-8 mb-12">
           <button
-            onClick={() => setActiveTab("awards")}
+            onClick={() => {
+              setActiveTab("awards");
+              setExpandedIndex(null);
+            }}
             className={`px-6 py-2 font-semibold rounded-full transition ${
               activeTab === "awards"
                 ? "bg-tealcustom text-black"
@@ -53,7 +69,10 @@ const AwardsCertifications = () => {
             Awards
           </button>
           <button
-            onClick={() => setActiveTab("certifications")}
+            onClick={() => {
+              setActiveTab("certifications");
+              setExpandedIndex(null);
+            }}
             className={`px-6 py-2 font-semibold rounded-full transition ${
               activeTab === "certifications"
                 ? "bg-tealcustom text-black"
@@ -64,45 +83,60 @@ const AwardsCertifications = () => {
           </button>
         </div>
 
-        {/* Content */}
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          {activeTab === "awards" && (
-            <div className="unique-grid awards-grid">
-              {awards.map((award, idx) => (
-                <div key={idx} className="unique-card unique-award">
-                  <div className="content">
-                    <h3>{award.title}</h3>
-                    <span>{award.year}</span>
-                    <p>{award.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+        {/* Content Grid */}
+        <div className={`unique-grid ${activeTab === "awards" ? "awards-grid" : "certs-grid"}`}>
+          {items.map((item, idx) => (
+            <motion.div
+              key={idx}
+              className={`unique-card ${activeTab === "awards" ? "unique-award" : "unique-cert"}`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => toggleExpand(idx)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") toggleExpand(idx);
+              }}
+              aria-expanded={expandedIndex === idx}
+            >
+              <div className="content">
+                <h3>{item.title}</h3>
+                <span>
+                  {item.year}
+                  {activeTab === "certifications" && item.issuer ? ` - ${item.issuer}` : ""}
+                </span>
+                {item.link && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-tealcustom hover:underline"
+                  >
+                    View Certificate
+                  </a>
+                )}
 
-          {activeTab === "certifications" && (
-            <div className="unique-grid certs-grid">
-              {certifications.map((cert, idx) => (
-                <div key={idx} className="unique-card unique-cert">
-                  <div className="content">
-                    <h3>{cert.title}</h3>
-                    <span>{cert.year} - {cert.issuer}</span>
-                    {cert.link && (
-                      <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                        View Certificate
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </motion.div>
+                <AnimatePresence>
+                  {expandedIndex === idx && (
+                    <motion.p
+                      className="expanded-description"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {item.description}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
