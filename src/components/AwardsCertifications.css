@@ -1,3 +1,4 @@
+/* Container Grid */
 .unique-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -16,7 +17,7 @@
   overflow: hidden;
   padding: 2rem 2.5rem;
   color: #d1d5db;
-  cursor: default;
+  cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -34,7 +35,8 @@
   position: absolute;
   border-radius: 2rem;
   opacity: 0.25;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
+  z-index: 0;
 }
 
 .unique-card::before {
@@ -45,7 +47,6 @@
   background: #14b8a6; /* teal */
   transform: rotate(25deg);
   filter: blur(40px);
-  z-index: 0;
 }
 
 .unique-card::after {
@@ -56,7 +57,6 @@
   background: #0ea5e9; /* blue */
   transform: rotate(-25deg);
   filter: blur(35px);
-  z-index: 0;
 }
 
 .unique-card:hover::before,
@@ -97,8 +97,19 @@
   color: #0ea5e9; /* bright blue on hover */
 }
 
-/* Different base colors for awards vs certs for subtle difference */
+/* Expanded Description */
+.expanded-description {
+  margin-top: 1rem;
+  color: #9ca3af; /* lighter gray */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  user-select: text;
+  cursor: default;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
 
+/* Different base colors for awards vs certs for subtle difference */
 .unique-award::before {
   background: #14b8a6; /* teal */
 }
@@ -113,6 +124,29 @@
 
 .unique-cert::after {
   background: #0369a1; /* darker blue */
+}
+
+/* Buttons styling for tabs */
+section#awards-certifications > div > .flex > button {
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px; /* pill shape */
+  font-weight: 600;
+  border: none;
+  background-color: #374151; /* default dark gray */
+  color: #d1d5db;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section#awards-certifications > div > .flex > button:hover {
+  background-color: #065f46; /* darker teal on hover */
+  color: white;
+}
+
+section#awards-certifications > div > .flex > button.active,
+section#awards-certifications > div > .flex > button[aria-pressed="true"] {
+  background-color: #14b8a6; /* teal */
+  color: black;
 }
 
 /* Responsive tweak */
