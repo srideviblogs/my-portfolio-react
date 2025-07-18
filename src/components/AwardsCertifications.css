@@ -238,13 +238,6 @@ section#awards-certifications > div > .flex > button[aria-pressed="true"] {
   transition: none;
 }
 
-/* Typing animation only on active tab */
-.typing-text.active {
-  border-right: 3px solid #14b8a6;
-  width: 0;
-  animation: typing 2.5s steps(14) forwards, blink-caret 0.75s step-end infinite;
-}
-
 @keyframes typing {
   to {
     width: 7ch; /* For "Awards" use 7ch; for "Certifications" increase to 14ch below */
