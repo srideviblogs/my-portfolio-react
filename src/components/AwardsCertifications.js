@@ -9,12 +9,14 @@ const awards = [
     year: "2021",
     description:
       "Awarded by Virtusa for outstanding performance and dedication.",
+    link: "https://example.com/virtusa-award",
   },
   {
     title: "Excellence in Automation",
     year: "2020",
     description:
       "Recognized by Infosys for delivering innovative automation solutions.",
+    link: "https://example.com/infosys-award", 
   },
 ];
 
