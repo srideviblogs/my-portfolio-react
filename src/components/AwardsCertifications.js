@@ -9,14 +9,14 @@ const awards = [
     year: "2021",
     description:
       "Awarded by Virtusa for outstanding performance and dedication.",
-    link: "https://www.guvi.in/share-certificate/z60y87eSY13c723V22",
+    link: "https://example.com/virtusa-award",
   },
   {
     title: "Excellence in Automation",
     year: "2020",
     description:
       "Recognized by Infosys for delivering innovative automation solutions.",
-    link: "https://example.com/infosys-award", 
+    link: "https://example.com/infosys-award"
   },
 ];
 
@@ -111,25 +111,17 @@ const AwardsCertifications = () => {
                   {item.year}
                   {activeTab === "certifications" && item.issuer ? ` - ${item.issuer}` : ""}
                 </span>
-                
-                {item.image && (
+                {item.link && (
                   <a
-                    href={item.image}
+                    href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
+                    className="text-tealcustom hover:underline"
                   >
-                  <motion.img
-                    src={item.image}
-                    alt={`${item.title} certificate`}
-                    className="certificate-image mt-3 rounded-lg shadow-md"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.4 }}
-                  />
+                    View Certificate
                   </a>
                 )}
-
                 <AnimatePresence>
                   {expandedIndex === idx && (
                     <motion.p
