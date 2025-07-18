@@ -225,33 +225,3 @@ section#awards-certifications > div > .flex > button[aria-pressed="true"] {
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-
-.typing-text {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: none;
-  width: auto;
-  font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
-  transition: none;
-}
-
-@keyframes typing {
-  to {
-    width: 7ch; /* For "Awards" use 7ch; for "Certifications" increase to 14ch below */
-  }
-}
-
-/* For Certifications text length */
-.tab-card:nth-child(2) .typing-text.active {
-  animation: typing 3.5s steps(14) forwards, blink-caret 0.75s step-end infinite;
-  width: 0;
-}
-
-@keyframes blink-caret {
-  50% {
-    border-color: transparent;
-  }
-}
