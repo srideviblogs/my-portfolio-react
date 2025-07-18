@@ -66,6 +66,7 @@ const AwardsCertifications = () => {
               }}
             >
               <FaAward className="tab-icon" />
+              <span className="typing-text">Awards</span>
               <span>Awards</span>
             </div>
             <div
@@ -80,6 +81,7 @@ const AwardsCertifications = () => {
               }}
             >
               <FaCertificate className="tab-icon" />
+              <span className="typing-text">Certifications</span>
               <span>Certifications</span>
             </div>
           </div>
