@@ -52,47 +52,30 @@ const AwardsCertifications = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">Awards & Certifications</h2>
 
-        {/* Tabs with boxed container */}
-        <div className="award-cert-section">
-          <div className="section-container" role="tablist" aria-label="Awards and Certifications Tabs">
+        {/* Tabs with Icons */}
+        <div className="award-cert-section flex justify-center mb-12">
+          <div className="tab-box flex gap-6">
             <div
-              className={`tab-card ${activeTab === "awards" ? "active" : ""}`}
+              className={`tab-card flex items-center gap-2 px-4 py-2 rounded cursor-pointer ${
+                activeTab === "awards" ? "bg-tealcustom text-black" : "bg-gray-800 hover:bg-gray-700"
+              }`}
               onClick={() => {
                 setActiveTab("awards");
                 setExpandedIndex(null);
-              }}
-              role="tab"
-              tabIndex={0}
-              aria-selected={activeTab === "awards"}
-              aria-controls="awards-panel"
-              id="awards-tab"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setActiveTab("awards");
-                  setExpandedIndex(null);
-                }
               }}
             >
               <FaAward className="tab-icon" />
               <span>Awards</span>
             </div>
-
             <div
-              className={`tab-card ${activeTab === "certifications" ? "active" : ""}`}
+              className={`tab-card flex items-center gap-2 px-4 py-2 rounded cursor-pointer ${
+                activeTab === "certifications"
+                  ? "bg-tealcustom text-black"
+                  : "bg-gray-800 hover:bg-gray-700"
+              }`}
               onClick={() => {
                 setActiveTab("certifications");
                 setExpandedIndex(null);
-              }}
-              role="tab"
-              tabIndex={0}
-              aria-selected={activeTab === "certifications"}
-              aria-controls="certifications-panel"
-              id="certifications-tab"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setActiveTab("certifications");
-                  setExpandedIndex(null);
-                }
               }}
             >
               <FaCertificate className="tab-icon" />
@@ -102,12 +85,7 @@ const AwardsCertifications = () => {
         </div>
 
         {/* Content Grid */}
-        <div
-          className={`unique-grid ${activeTab === "awards" ? "awards-grid" : "certs-grid"}`}
-          role="tabpanel"
-          id={activeTab === "awards" ? "awards-panel" : "certifications-panel"}
-          aria-labelledby={activeTab === "awards" ? "awards-tab" : "certifications-tab"}
-        >
+        <div className={`unique-grid ${activeTab === "awards" ? "awards-grid" : "certs-grid"}`}>
           {items.map((item, idx) => (
             <motion.div
               key={idx}
