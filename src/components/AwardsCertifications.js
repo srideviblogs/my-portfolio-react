@@ -1,142 +1,81 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from "react";
 import "./AwardsCertifications.css";
 
-const awards = [
+const awardsData = [
   {
-    title: "Best Employee of the Year",
-    year: "2021",
-    description:
-      "Awarded by Virtusa for outstanding performance and dedication.",
+    title: "Best Performer Award",
+    issuer: "ABC Corporation",
+    description: "Awarded for outstanding performance in project delivery during Q3.",
   },
   {
-    title: "Excellence in Automation",
-    year: "2020",
-    description:
-      "Recognized by Infosys for delivering innovative automation solutions.",
+    title: "Star Team Player",
+    issuer: "XYZ Solutions",
+    description: "Recognized for excellent collaboration and team leadership.",
   },
-  // Add more awards here
 ];
 
-const certifications = [
+const certificationsData = [
   {
-    title: "AWS Certified Solutions Architect – Associate",
-    year: "2022",
+    title: "AWS Certified Solutions Architect",
     issuer: "Amazon Web Services",
-    link: "https://www.yourcertificateurl.com/aws-solution-architect",
-    description:
-      "Comprehensive knowledge and skills in designing AWS cloud architectures.",
+    description: "Credential validating expertise in cloud architecture on AWS.",
   },
   {
     title: "Certified Kubernetes Administrator (CKA)",
-    year: "2021",
-    issuer: "Cloud Native Computing Foundation",
-    link: "https://www.yourcertificateurl.com/cka",
-    description:
-      "Demonstrated proficiency in Kubernetes cluster administration and management.",
+    issuer: "Linux Foundation",
+    description: "Demonstrated knowledge of Kubernetes architecture and operations.",
   },
-  // Add more certifications here
 ];
 
 const AwardsCertifications = () => {
-  const [activeTab, setActiveTab] = React.useState("awards");
-  const [expandedIndex, setExpandedIndex] = React.useState(null);
+  const [activeTab, setActiveTab] = useState("awards");
 
-  const toggleExpand = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("appear");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
-  const items = activeTab === "awards" ? awards : certifications;
+    const cards = document.querySelectorAll(".award-card");
+    cards.forEach((card) => observer.observe(card));
+
+    return () => cards.forEach((card) => observer.unobserve(card));
+  }, [activeTab]);
+
+  const dataToDisplay = activeTab === "awards" ? awardsData : certificationsData;
 
   return (
-    <section id="awards-certifications" className="bg-black text-white py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">Awards & Certifications</h2>
+    <section id="awards-certifications" className="bg-black py-20 px-6 text-white">
+      <h2 className="text-center text-4xl font-bold mb-12">Awards & Certifications</h2>
+      <div className="awards-tabs flex justify-center gap-4 mb-10">
+        <button
+          className={`tab-button ${activeTab === "awards" ? "active" : ""}`}
+          onClick={() => setActiveTab("awards")}
+        >
+          Awards
+        </button>
+        <button
+          className={`tab-button ${activeTab === "certifications" ? "active" : ""}`}
+          onClick={() => setActiveTab("certifications")}
+        >
+          Certifications
+        </button>
+      </div>
 
-        {/* Tabs */}
-        <div className="flex justify-center gap-8 mb-12">
-          <button
-            onClick={() => {
-              setActiveTab("awards");
-              setExpandedIndex(null);
-            }}
-            className={`px-6 py-2 font-semibold rounded-full transition ${
-              activeTab === "awards"
-                ? "bg-tealcustom text-black"
-                : "bg-gray-800 hover:bg-gray-700"
-            }`}
-          >
-            Awards
-          </button>
-          <button
-            onClick={() => {
-              setActiveTab("certifications");
-              setExpandedIndex(null);
-            }}
-            className={`px-6 py-2 font-semibold rounded-full transition ${
-              activeTab === "certifications"
-                ? "bg-tealcustom text-black"
-                : "bg-gray-800 hover:bg-gray-700"
-            }`}
-          >
-            Certifications
-          </button>
-        </div>
-
-        {/* Content Grid */}
-        <div className={`unique-grid ${activeTab === "awards" ? "awards-grid" : "certs-grid"}`}>
-          {items.map((item, idx) => (
-            <motion.div
-              key={idx}
-              className={`unique-card ${activeTab === "awards" ? "unique-award" : "unique-cert"}`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => toggleExpand(idx)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") toggleExpand(idx);
-              }}
-              aria-expanded={expandedIndex === idx}
-            >
-              <div className="content">
-                <h3>{item.title}</h3>
-                <span>
-                  {item.year}
-                  {activeTab === "certifications" && item.issuer ? ` - ${item.issuer}` : ""}
-                </span>
-                {item.link && (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-tealcustom hover:underline"
-                  >
-                    View Certificate
-                  </a>
-                )}
-
-                <AnimatePresence>
-                  {expandedIndex === idx && (
-                    <motion.p
-                      className="expanded-description"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {item.description}
-                    </motion.p>
-                  )}
-                </AnimatePresence>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div className="awards-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {dataToDisplay.map((item, index) => (
+          <div key={index} className="award-card bg-[#1c1c1c] rounded-2xl p-6 shadow-lg transform transition-all duration-500 hover:scale-105">
+            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+            <span className="block text-sm text-gray-400 mb-3">{item.issuer}</span>
+            <p className="text-sm text-gray-300">{item.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
