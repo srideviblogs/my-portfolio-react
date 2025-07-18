@@ -207,7 +207,7 @@ section#awards-certifications > div > .flex > button[aria-pressed="true"] {
 .tab-card:hover,
 .tab-card.active {
   background-color: #c1c9c8;
-  border-color: #14b8a6;
+  border-color: #2d3748;
   box-shadow: 0 10px 25px rgba(20, 184, 166, 0.15);
   transform: scale(1.03);
 }
