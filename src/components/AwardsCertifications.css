@@ -226,31 +226,37 @@ section#awards-certifications > div > .flex > button[aria-pressed="true"] {
   letter-spacing: 0.5px;
 }
 
-/* Typing animation container */
 .typing-text {
   display: inline-block;
-  overflow: hidden; /* Ensures text is hidden when typing */
   white-space: nowrap;
-  border-right: 3px solid #14b8a6; /* Cursor */
-  animation:
-    typing 2.5s steps(12, end) forwards,
-    blink-caret 0.75s step-end infinite;
+  overflow: hidden;
+  border-right: none;
+  width: auto;
   font-weight: 600;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
+  transition: none;
 }
 
-/* Typing effect */
+/* Typing animation only on active tab */
+.typing-text.active {
+  border-right: 3px solid #14b8a6;
+  width: 0;
+  animation: typing 2.5s steps(14) forwards, blink-caret 0.75s step-end infinite;
+}
+
 @keyframes typing {
-  from {
-    width: 0;
-  }
   to {
-    width: 100%;
+    width: 7ch; /* For "Awards" use 7ch; for "Certifications" increase to 14ch below */
   }
 }
 
-/* Blinking cursor */
+/* For Certifications text length */
+.tab-card:nth-child(2) .typing-text.active {
+  animation: typing 3.5s steps(14) forwards, blink-caret 0.75s step-end infinite;
+  width: 0;
+}
+
 @keyframes blink-caret {
   50% {
     border-color: transparent;
