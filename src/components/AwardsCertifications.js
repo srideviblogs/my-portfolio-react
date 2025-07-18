@@ -1,127 +1,145 @@
-.unique-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 0 1rem;
-}
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import "./AwardsCertifications.css";
 
-/* Card Base */
-.unique-card {
-  position: relative;
-  background: linear-gradient(135deg, #0f172a, #111827); /* dark blue-gray gradient */
-  border-radius: 2rem;
-  box-shadow:
-    0 8px 15px rgba(20, 184, 166, 0.3),
-    inset 0 0 15px rgba(20, 184, 166, 0.2);
-  overflow: hidden;
-  padding: 2rem 2.5rem;
-  color: #d1d5db;
-  cursor: default;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
+const awards = [
+  {
+    title: "Best Employee of the Year",
+    year: "2021",
+    description:
+      "Awarded by Virtusa for outstanding performance and dedication.",
+  },
+  {
+    title: "Excellence in Automation",
+    year: "2020",
+    description:
+      "Recognized by Infosys for delivering innovative automation solutions.",
+  },
+  // Add more awards here
+];
 
-.unique-card:hover {
-  transform: translateY(-12px) rotate(-2deg);
-  box-shadow:
-    0 15px 25px rgba(20, 184, 166, 0.5),
-    inset 0 0 25px rgba(20, 184, 166, 0.3);
-}
+const certifications = [
+  {
+    title: "AWS Certified Solutions Architect – Associate",
+    year: "2022",
+    issuer: "Amazon Web Services",
+    link: "https://www.yourcertificateurl.com/aws-solution-architect",
+    description:
+      "Comprehensive knowledge and skills in designing AWS cloud architectures.",
+  },
+  {
+    title: "Certified Kubernetes Administrator (CKA)",
+    year: "2021",
+    issuer: "Cloud Native Computing Foundation",
+    link: "https://www.yourcertificateurl.com/cka",
+    description:
+      "Demonstrated proficiency in Kubernetes cluster administration and management.",
+  },
+  // Add more certifications here
+];
 
-/* Asymmetric pseudo elements for style */
-.unique-card::before,
-.unique-card::after {
-  content: "";
-  position: absolute;
-  border-radius: 2rem;
-  opacity: 0.25;
-  transition: opacity 0.3s ease;
-}
+const AwardsCertifications = () => {
+  const [activeTab, setActiveTab] = React.useState("awards");
+  const [expandedIndex, setExpandedIndex] = React.useState(null);
 
-.unique-card::before {
-  top: -40px;
-  left: -40px;
-  width: 100px;
-  height: 140px;
-  background: #14b8a6; /* teal */
-  transform: rotate(25deg);
-  filter: blur(40px);
-  z-index: 0;
-}
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
-.unique-card::after {
-  bottom: -50px;
-  right: -50px;
-  width: 140px;
-  height: 100px;
-  background: #0ea5e9; /* blue */
-  transform: rotate(-25deg);
-  filter: blur(35px);
-  z-index: 0;
-}
+  const items = activeTab === "awards" ? awards : certifications;
 
-.unique-card:hover::before,
-.unique-card:hover::after {
-  opacity: 0.45;
-}
+  return (
+    <section id="awards-certifications" className="bg-black text-white py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-12">Awards & Certifications</h2>
 
-/* Content inside card */
-.unique-card .content {
-  position: relative;
-  z-index: 1;
-}
+        {/* Tabs */}
+        <div className="flex justify-center gap-8 mb-12">
+          <button
+            onClick={() => {
+              setActiveTab("awards");
+              setExpandedIndex(null);
+            }}
+            className={`px-6 py-2 font-semibold rounded-full transition ${
+              activeTab === "awards"
+                ? "bg-tealcustom text-black"
+                : "bg-gray-800 hover:bg-gray-700"
+            }`}
+          >
+            Awards
+          </button>
+          <button
+            onClick={() => {
+              setActiveTab("certifications");
+              setExpandedIndex(null);
+            }}
+            className={`px-6 py-2 font-semibold rounded-full transition ${
+              activeTab === "certifications"
+                ? "bg-tealcustom text-black"
+                : "bg-gray-800 hover:bg-gray-700"
+            }`}
+          >
+            Certifications
+          </button>
+        </div>
 
-.unique-card h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #14b8a6; /* teal */
-  margin-bottom: 0.5rem;
-}
+        {/* Content Grid */}
+        <div className={`unique-grid ${activeTab === "awards" ? "awards-grid" : "certs-grid"}`}>
+          {items.map((item, idx) => (
+            <motion.div
+              key={idx}
+              className={`unique-card ${activeTab === "awards" ? "unique-award" : "unique-cert"}`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => toggleExpand(idx)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") toggleExpand(idx);
+              }}
+              aria-expanded={expandedIndex === idx}
+            >
+              <div className="content">
+                <h3>{item.title}</h3>
+                <span>
+                  {item.year}
+                  {activeTab === "certifications" && item.issuer ? ` - ${item.issuer}` : ""}
+                </span>
+                {item.link && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-tealcustom hover:underline"
+                  >
+                    View Certificate
+                  </a>
+                )}
 
-.unique-card span {
-  font-style: italic;
-  color: #6b7280; /* gray-500 */
-  display: block;
-  margin-bottom: 1rem;
-}
+                <AnimatePresence>
+                  {expandedIndex === idx && (
+                    <motion.p
+                      className="expanded-description"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {item.description}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
-.unique-card p,
-.unique-card a {
-  font-size: 1rem;
-  color: #d1d5db; /* gray-300 */
-  line-height: 1.4;
-  text-decoration: none;
-}
-
-.unique-card a:hover {
-  text-decoration: underline;
-  color: #0ea5e9; /* bright blue on hover */
-}
-
-/* Different base colors for awards vs certs for subtle difference */
-
-.unique-award::before {
-  background: #14b8a6; /* teal */
-}
-
-.unique-award::after {
-  background: #047857; /* darker green */
-}
-
-.unique-cert::before {
-  background: #0ea5e9; /* bright blue */
-}
-
-.unique-cert::after {
-  background: #0369a1; /* darker blue */
-}
-
-/* Responsive tweak */
-@media (max-width: 480px) {
-  .unique-card {
-    padding: 1.5rem 1.8rem;
-  }
-
-  .unique-card h3 {
-    font-size: 1.2rem;
-  }
-}
+export default AwardsCertifications;
