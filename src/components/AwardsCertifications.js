@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaAward, FaCertificate } from "react-icons/fa";
 import "./AwardsCertifications.css";
 
 const awards = [
@@ -51,33 +52,39 @@ const AwardsCertifications = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">Awards & Certifications</h2>
 
-        {/* Custom Tab Buttons */}
-        <div className="section-container mb-12">
-          <div className="tab-box">
-            <button
-              className={activeTab === "awards" ? "active" : ""}
-              aria-pressed={activeTab === "awards"}
+        {/* Tabs with Icons */}
+        <div className="award-cert-section flex justify-center mb-12">
+          <div className="tab-box flex gap-6">
+            <div
+              className={`tab-card flex items-center gap-2 px-4 py-2 rounded cursor-pointer ${
+                activeTab === "awards" ? "bg-tealcustom text-black" : "bg-gray-800 hover:bg-gray-700"
+              }`}
               onClick={() => {
                 setActiveTab("awards");
                 setExpandedIndex(null);
               }}
             >
-              Awards
-            </button>
-            <button
-              className={activeTab === "certifications" ? "active" : ""}
-              aria-pressed={activeTab === "certifications"}
+              <FaAward className="tab-icon" />
+              <span>Awards</span>
+            </div>
+            <div
+              className={`tab-card flex items-center gap-2 px-4 py-2 rounded cursor-pointer ${
+                activeTab === "certifications"
+                  ? "bg-tealcustom text-black"
+                  : "bg-gray-800 hover:bg-gray-700"
+              }`}
               onClick={() => {
                 setActiveTab("certifications");
                 setExpandedIndex(null);
               }}
             >
-              Certifications
-            </button>
+              <FaCertificate className="tab-icon" />
+              <span>Certifications</span>
+            </div>
           </div>
         </div>
 
-        {/* Cards */}
+        {/* Content Grid */}
         <div className={`unique-grid ${activeTab === "awards" ? "awards-grid" : "certs-grid"}`}>
           {items.map((item, idx) => (
             <motion.div
