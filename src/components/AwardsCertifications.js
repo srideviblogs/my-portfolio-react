@@ -67,7 +67,6 @@ const AwardsCertifications = () => {
             >
               <FaAward className="tab-icon" />
               <span className="typing-text">Awards</span>
-              <span>Awards</span>
             </div>
             <div
               className={`tab-card flex items-center gap-2 px-4 py-2 rounded cursor-pointer ${
@@ -82,7 +81,6 @@ const AwardsCertifications = () => {
             >
               <FaCertificate className="tab-icon" />
               <span className="typing-text">Certifications</span>
-              <span>Certifications</span>
             </div>
           </div>
         </div>
