@@ -10,13 +10,15 @@ const awards = [
     description:
       "Awarded by Virtusa for outstanding performance and dedication.",
     link: "https://example.com/virtusa-award",
+    image: "https://via.placeholder.com/300x180?text=Virtusa+Award", // Optional image
   },
   {
     title: "Excellence in Automation",
     year: "2020",
     description:
       "Recognized by Infosys for delivering innovative automation solutions.",
-    link: "https://example.com/infosys-award"
+    link: "https://example.com/infosys-award",
+    image: "https://via.placeholder.com/300x180?text=Infosys+Award",
   },
 ];
 
@@ -28,6 +30,7 @@ const certifications = [
     link: "https://www.yourcertificateurl.com/aws-solution-architect",
     description:
       "Comprehensive knowledge and skills in designing AWS cloud architectures.",
+    image: "https://via.placeholder.com/300x180?text=AWS+Certificate",
   },
   {
     title: "Certified Kubernetes Administrator (CKA)",
@@ -36,6 +39,7 @@ const certifications = [
     link: "https://www.yourcertificateurl.com/cka",
     description:
       "Demonstrated proficiency in Kubernetes cluster administration and management.",
+    image: "https://via.placeholder.com/300x180?text=CKA+Certificate",
   },
 ];
 
@@ -111,21 +115,36 @@ const AwardsCertifications = () => {
                   {item.year}
                   {activeTab === "certifications" && item.issuer ? ` - ${item.issuer}` : ""}
                 </span>
+
+                {/* Optional Image Preview */}
+                {item.image && (
+                  <div className="certificate-image-container mt-2">
+                    <img
+                      src={item.image}
+                      alt={`${item.title} certificate`}
+                      className="certificate-image rounded-md shadow-md"
+                    />
+                  </div>
+                )}
+
+                {/* Optional Link */}
                 {item.link && (
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="text-tealcustom hover:underline"
+                    className="text-tealcustom hover:underline mt-2 inline-block"
                   >
                     View Certificate
                   </a>
                 )}
+
+                {/* Description Toggle */}
                 <AnimatePresence>
                   {expandedIndex === idx && (
                     <motion.p
-                      className="expanded-description"
+                      className="expanded-description mt-2"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
