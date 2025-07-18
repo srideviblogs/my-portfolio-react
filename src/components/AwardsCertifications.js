@@ -15,7 +15,6 @@ const awards = [
     description:
       "Recognized by Infosys for delivering innovative automation solutions.",
   },
-  // Add more awards here
 ];
 
 const certifications = [
@@ -35,12 +34,11 @@ const certifications = [
     description:
       "Demonstrated proficiency in Kubernetes cluster administration and management.",
   },
-  // Add more certifications here
 ];
 
 const AwardsCertifications = () => {
-  const [activeTab, setActiveTab] = React.useState("awards");
-  const [expandedIndex, setExpandedIndex] = React.useState(null);
+  const [activeTab, setActiveTab] = useState("awards");
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   const toggleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -53,37 +51,33 @@ const AwardsCertifications = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">Awards & Certifications</h2>
 
-        {/* Tabs */}
-        <div className="flex justify-center gap-8 mb-12">
-          <button
-            onClick={() => {
-              setActiveTab("awards");
-              setExpandedIndex(null);
-            }}
-            className={`px-6 py-2 font-semibold rounded-full transition ${
-              activeTab === "awards"
-                ? "bg-tealcustom text-black"
-                : "bg-gray-800 hover:bg-gray-700"
-            }`}
-          >
-            Awards
-          </button>
-          <button
-            onClick={() => {
-              setActiveTab("certifications");
-              setExpandedIndex(null);
-            }}
-            className={`px-6 py-2 font-semibold rounded-full transition ${
-              activeTab === "certifications"
-                ? "bg-tealcustom text-black"
-                : "bg-gray-800 hover:bg-gray-700"
-            }`}
-          >
-            Certifications
-          </button>
+        {/* Custom Tab Buttons */}
+        <div className="section-container mb-12">
+          <div className="tab-box">
+            <button
+              className={activeTab === "awards" ? "active" : ""}
+              aria-pressed={activeTab === "awards"}
+              onClick={() => {
+                setActiveTab("awards");
+                setExpandedIndex(null);
+              }}
+            >
+              Awards
+            </button>
+            <button
+              className={activeTab === "certifications" ? "active" : ""}
+              aria-pressed={activeTab === "certifications"}
+              onClick={() => {
+                setActiveTab("certifications");
+                setExpandedIndex(null);
+              }}
+            >
+              Certifications
+            </button>
+          </div>
         </div>
 
-        {/* Content Grid */}
+        {/* Cards */}
         <div className={`unique-grid ${activeTab === "awards" ? "awards-grid" : "certs-grid"}`}>
           {items.map((item, idx) => (
             <motion.div
@@ -119,7 +113,6 @@ const AwardsCertifications = () => {
                     View Certificate
                   </a>
                 )}
-
                 <AnimatePresence>
                   {expandedIndex === idx && (
                     <motion.p
