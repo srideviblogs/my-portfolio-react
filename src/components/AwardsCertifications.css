@@ -1,64 +1,15 @@
-/* Container with black bg and centered tabs */
-.award-cert-section {
-  background-color: #000; /* pure black */
-  padding: 3rem 1rem 5rem;
-  max-width: 90rem; /* max-w-6xl */
-  margin: 0 auto;
-  color: #e5e7eb;
-}
-
-/* Tabs container */
-.tab-box {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-
-/* Each tab box styled as card */
-.tab-card {
-  background-color: #0a0a0a;
-  border: 1px solid #1f2937; /* very thin subtle border */
-  padding: 1.8rem 3rem;
-  border-radius: 1.25rem;
-  color: #d1d5db;
-  cursor: pointer;
-  text-align: center;
-  width: 140px;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  user-select: none;
-}
-
-.tab-card:hover,
-.tab-card.active {
-  background-color: #111827;
-  border-color: #14b8a6;
-  box-shadow: 0 10px 25px rgba(20, 184, 166, 0.15);
-  transform: scale(1.05);
-}
-
-.tab-icon {
-  font-size: 2.8rem;
-  color: #14b8a6;
-}
-
-/* Unique grid cards for awards & certs */
+/* Container Grid */
 .unique-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+  gap: 2rem;
   padding: 0 1rem;
 }
 
 /* Card Base */
 .unique-card {
   position: relative;
-  background: linear-gradient(135deg, #0f172a, #111827);
+  background: linear-gradient(135deg, #0f172a, #111827); /* dark blue-gray gradient */
   border-radius: 2rem;
   box-shadow:
     0 8px 15px rgba(20, 184, 166, 0.3),
@@ -66,7 +17,7 @@
   overflow: hidden;
   padding: 2rem 2.5rem;
   color: #d1d5db;
-  cursor: default;
+  cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -84,7 +35,7 @@
   position: absolute;
   border-radius: 2rem;
   opacity: 0.25;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
   z-index: 0;
 }
 
@@ -93,6 +44,8 @@
   left: -40px;
   width: 100px;
   height: 140px;
+  background: #14b8a6; /* teal */
+  transform: rotate(25deg);
   filter: blur(40px);
 }
 
@@ -101,10 +54,62 @@
   right: -50px;
   width: 140px;
   height: 100px;
+  background: #0ea5e9; /* blue */
+  transform: rotate(-25deg);
   filter: blur(35px);
 }
 
-/* Different base colors for awards vs certs */
+.unique-card:hover::before,
+.unique-card:hover::after {
+  opacity: 0.45;
+}
+
+/* Content inside card */
+.unique-card .content {
+  position: relative;
+  z-index: 1;
+}
+
+.unique-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #14b8a6; /* teal */
+  margin-bottom: 0.5rem;
+}
+
+.unique-card span {
+  font-style: italic;
+  color: #6b7280; /* gray-500 */
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.unique-card p,
+.unique-card a {
+  font-size: 1rem;
+  color: #d1d5db; /* gray-300 */
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.unique-card a:hover {
+  text-decoration: underline;
+  color: #0ea5e9; /* bright blue on hover */
+}
+
+/* Expanded Description */
+.expanded-description {
+  margin-top: 1rem;
+  color: #9ca3af; /* lighter gray */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  user-select: text;
+  cursor: default;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+/* Different base colors for awards vs certs for subtle difference */
 .unique-award::before {
   background: #14b8a6; /* teal */
 }
@@ -121,44 +126,102 @@
   background: #0369a1; /* darker blue */
 }
 
-/* Content inside card */
-.unique-card .content {
-  position: relative;
-  z-index: 1;
-}
-
-.unique-card h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #14b8a6;
-  margin-bottom: 0.5rem;
-}
-
-.unique-card span {
-  font-style: italic;
-  color: #6b7280;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.unique-card p {
-  font-size: 1rem;
+/* Buttons styling for tabs */
+section#awards-certifications > div > .flex > button {
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px; /* pill shape */
+  font-weight: 600;
+  border: none;
+  background-color: #374151; /* default dark gray */
   color: #d1d5db;
-  line-height: 1.4;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Responsive tweaks */
+section#awards-certifications > div > .flex > button:hover {
+  background-color: #065f46; /* darker teal on hover */
+  color: white;
+}
+
+section#awards-certifications > div > .flex > button.active,
+section#awards-certifications > div > .flex > button[aria-pressed="true"] {
+  background-color: #14b8a6; /* teal */
+  color: black;
+}
+
+/* Responsive tweak */
 @media (max-width: 480px) {
-  .tab-card {
-    width: 120px;
-    padding: 1.3rem 2rem;
-  }
-
-  .tab-icon {
-    font-size: 2rem;
-  }
-
   .unique-card {
-    padding: 1.8rem 2rem;
+    padding: 1.5rem 1.8rem;
   }
+
+  .unique-card h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Section Container with shadow box */
+.section-container {
+  max-width: 768px;
+  margin: 0 auto 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #0f172a, #1e293b); /* dark blue-gray */
+  border: 2px solid #14b8a6;
+  border-radius: 1.5rem;
+  box-shadow: 0 15px 25px rgba(20, 184, 166, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tab Box (Awards & Certs buttons inside container) */
+
+/* Main container */
+.award-cert-section {
+  background-color: #000;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Tab container */
+.tab-box {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Card-style tab */
+.tab-card {
+  background-color: #0a0a0a;
+  border: 1px solid #1f2937; /* thin subtle border */
+  padding: 2rem 2.5rem;
+  border-radius: 1.25rem;
+  color: #e5e7eb;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 transparent;
+}
+
+.tab-card:hover,
+.tab-card.active {
+  background-color: #111827;
+  border-color: #2d3748;
+  box-shadow: 0 10px 25px rgba(20, 184, 166, 0.15);
+  transform: scale(1.03);
+}
+
+/* Icon styling */
+.tab-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #14b8a6;
+}
+
+/* Text */
+.tab-card span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
