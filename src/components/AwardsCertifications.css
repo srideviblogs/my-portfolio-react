@@ -225,3 +225,36 @@ section#awards-certifications > div > .flex > button[aria-pressed="true"] {
   font-weight: 600;
   letter-spacing: 0.5px;
 }
+
+/* Typing animation container */
+.typing-text {
+  display: inline-block;
+  overflow: hidden; /* Ensures text is hidden when typing */
+  white-space: nowrap;
+  border-right: 3px solid #14b8a6; /* Cursor */
+  animation:
+    typing 2.5s steps(12, end) forwards,
+    blink-caret 0.75s step-end infinite;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Blinking cursor */
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
