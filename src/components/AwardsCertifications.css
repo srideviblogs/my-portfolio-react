@@ -1,161 +1,119 @@
-/* Container Grid */
+/* Full-width black section */
+#awards-certifications {
+  background-color: #000;
+  padding: 5rem 1rem;
+  color: #fff;
+}
+
+/* Heading center aligned, no underline */
+#awards-certifications h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #14b8a6;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background-color: #111827;
+  padding: 0.7rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.tab.active {
+  background-color: #14b8a6;
+  color: #fff;
+  border-color: #0ea5e9;
+  transform: scale(1.05);
+}
+
+/* Grid container */
 .unique-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Card Base */
+/* Card style */
 .unique-card {
   position: relative;
-  background: linear-gradient(135deg, #0f172a, #111827); /* dark blue-gray gradient */
-  border-radius: 2rem;
-  box-shadow:
-    0 8px 15px rgba(20, 184, 166, 0.3),
-    inset 0 0 15px rgba(20, 184, 166, 0.2);
+  background: #111827;
+  border: 2px solid #14b8a6;
+  border-radius: 1.5rem;
+  padding: 2rem;
   overflow: hidden;
-  padding: 2rem 2.5rem;
-  color: #d1d5db;
-  cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  color: #d1d5db;
+  box-shadow: 0 8px 24px rgba(20, 184, 166, 0.2);
 }
 
 .unique-card:hover {
-  transform: translateY(-12px) rotate(-2deg);
-  box-shadow:
-    0 15px 25px rgba(20, 184, 166, 0.5),
-    inset 0 0 25px rgba(20, 184, 166, 0.3);
-}
-
-/* Asymmetric pseudo elements for style */
-.unique-card::before,
-.unique-card::after {
-  content: "";
-  position: absolute;
-  border-radius: 2rem;
-  opacity: 0.25;
-  transition: opacity 0.5s ease;
-  z-index: 0;
-}
-
-.unique-card::before {
-  top: -40px;
-  left: -40px;
-  width: 100px;
-  height: 140px;
-  background: #14b8a6; /* teal */
-  transform: rotate(25deg);
-  filter: blur(40px);
-}
-
-.unique-card::after {
-  bottom: -50px;
-  right: -50px;
-  width: 140px;
-  height: 100px;
-  background: #0ea5e9; /* blue */
-  transform: rotate(-25deg);
-  filter: blur(35px);
-}
-
-.unique-card:hover::before,
-.unique-card:hover::after {
-  opacity: 0.45;
-}
-
-/* Content inside card */
-.unique-card .content {
-  position: relative;
-  z-index: 1;
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
 }
 
 .unique-card h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #14b8a6; /* teal */
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  color: #0ea5e9;
 }
 
 .unique-card span {
-  font-style: italic;
-  color: #6b7280; /* gray-500 */
   display: block;
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
 }
 
-.unique-card p,
-.unique-card a {
+.unique-card p {
   font-size: 1rem;
-  color: #d1d5db; /* gray-300 */
   line-height: 1.4;
-  text-decoration: none;
 }
 
-.unique-card a:hover {
-  text-decoration: underline;
-  color: #0ea5e9; /* bright blue on hover */
+/* Animation: Fade-in on scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Expanded Description */
-.expanded-description {
-  margin-top: 1rem;
-  color: #9ca3af; /* lighter gray */
-  font-size: 0.95rem;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-  user-select: text;
-  cursor: default;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Different base colors for awards vs certs for subtle difference */
-.unique-award::before {
-  background: #14b8a6; /* teal */
+.fade-in-up.visible {
+  opacity: 1;
 }
 
-.unique-award::after {
-  background: #047857; /* darker green */
-}
-
-.unique-cert::before {
-  background: #0ea5e9; /* bright blue */
-}
-
-.unique-cert::after {
-  background: #0369a1; /* darker blue */
-}
-
-/* Buttons styling for tabs */
-section#awards-certifications > div > .flex > button {
-  cursor: pointer;
-  padding: 0.5rem 1.5rem;
-  border-radius: 9999px; /* pill shape */
-  font-weight: 600;
-  border: none;
-  background-color: #374151; /* default dark gray */
-  color: #d1d5db;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-section#awards-certifications > div > .flex > button:hover {
-  background-color: #065f46; /* darker teal on hover */
-  color: white;
-}
-
-section#awards-certifications > div > .flex > button.active,
-section#awards-certifications > div > .flex > button[aria-pressed="true"] {
-  background-color: #14b8a6; /* teal */
-  color: black;
-}
-
-/* Responsive tweak */
-@media (max-width: 480px) {
-  .unique-card {
-    padding: 1.5rem 1.8rem;
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .tabs {
+    gap: 1rem;
   }
 
-  .unique-card h3 {
-    font-size: 1.2rem;
+  #awards-certifications h2 {
+    font-size: 2rem;
   }
 }
