@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaAward, FaCertificate } from "react-icons/fa";
@@ -17,6 +16,7 @@ const awards = [
     description:
       "Recognized by Infosys for delivering innovative automation solutions.",
   },
+  // Add more awards here
 ];
 
 const certifications = [
@@ -36,6 +36,7 @@ const certifications = [
     description:
       "Demonstrated proficiency in Kubernetes cluster administration and management.",
   },
+  // Add more certifications here
 ];
 
 const AwardsCertifications = () => {
@@ -64,23 +65,42 @@ const AwardsCertifications = () => {
                 setActiveTab("awards");
                 setExpandedIndex(null);
               }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setActiveTab("awards");
+                  setExpandedIndex(null);
+                }
+              }}
+              aria-selected={activeTab === "awards"}
             >
               <FaAward className="tab-icon" />
-              <span className="typing-text">Awards</span>
+              <span className={`typing-text ${activeTab === "awards" ? "active" : ""}`}>Awards</span>
             </div>
+
             <div
               className={`tab-card flex items-center gap-2 px-4 py-2 rounded cursor-pointer ${
-                activeTab === "certifications"
-                  ? "bg-tealcustom text-black"
-                  : "bg-gray-800 hover:bg-gray-700"
+                activeTab === "certifications" ? "bg-tealcustom text-black" : "bg-gray-800 hover:bg-gray-700"
               }`}
               onClick={() => {
                 setActiveTab("certifications");
                 setExpandedIndex(null);
               }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setActiveTab("certifications");
+                  setExpandedIndex(null);
+                }
+              }}
+              aria-selected={activeTab === "certifications"}
             >
               <FaCertificate className="tab-icon" />
-              <span className="typing-text">Certifications</span>
+              <span className={`typing-text ${activeTab === "certifications" ? "active" : ""}`}>
+                Certifications
+              </span>
             </div>
           </div>
         </div>
@@ -121,6 +141,7 @@ const AwardsCertifications = () => {
                     View Certificate
                   </a>
                 )}
+
                 <AnimatePresence>
                   {expandedIndex === idx && (
                     <motion.p
