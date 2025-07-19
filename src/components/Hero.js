@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPenNib } from "react-icons/fa"; // Added FaPenNib
+import { FaGithub, FaLinkedin, FaEnvelope, FaPenNib } from "react-icons/fa"; // ⬅️ Added FaPenNib
 import "./Hero.css";
 
 const Hero = () => {
   const videoRef = useRef(null);
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 300], [0, -50]); // Adjust parallax strength here
+  const y = useTransform(scrollY, [0, 300], [0, -50]);
 
   return (
     <section
@@ -16,7 +16,7 @@ const Hero = () => {
     >
       {/* 🔹 Background Video with Parallax */}
       <motion.video
-        style={{ y }} // 🎯 Parallax applied here
+        style={{ y }}
         className="absolute right-0 top-0 h-full w-auto object-cover opacity-20 md:opacity-40 lg:opacity-60 pointer-events-none z-0 animate-fadeIn"
         autoPlay
         loop
@@ -59,7 +59,6 @@ const Hero = () => {
             href="https://github.com/srideviblogs"
             target="_blank"
             rel="noopener noreferrer"
-            title="GitHub"
             className="hover:text-green-400"
           >
             <FaGithub />
@@ -68,14 +67,12 @@ const Hero = () => {
             href="https://www.linkedin.com/in/sridevi-v-9ba35b243/"
             target="_blank"
             rel="noopener noreferrer"
-            title="LinkedIn"
             className="hover:text-green-400"
           >
             <FaLinkedin />
           </a>
           <a
             href="mailto:sridevi.velpula.official@gmail.com"
-            title="Email"
             className="hover:text-green-400"
           >
             <FaEnvelope />
@@ -84,7 +81,6 @@ const Hero = () => {
             href="https://srideviblogs.github.io/"
             target="_blank"
             rel="noopener noreferrer"
-            title="Blog"
             className="hover:text-green-400"
           >
             <FaPenNib />
