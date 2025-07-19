@@ -72,3 +72,25 @@
   filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.4));
   pointer-events: none;
 }
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 3px #fff);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #0ff);
+  }
+  100% {
+    filter: drop-shadow(0 0 3px #fff);
+  }
+}
+
+.glow-icon {
+  animation: glow 2s ease-in-out infinite;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.glow-icon:hover {
+  transform: scale(1.2);
+}
