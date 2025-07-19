@@ -11,7 +11,8 @@ const Hero = () => {
     >
       {/* Animated Background Video */}
       <video
-        className="absolute right-0 top-0 h-full object-cover opacity-30 md:opacity-50 lg:opacity-70 block glowing-background-video"
+        /* className="absolute right-0 top-0 h-full object-cover opacity-30 md:opacity-50 lg:opacity-70 block glowing-background-video" */
+        className="absolute right-0 top-0 h-full w-auto object-cover opacity-20 md:opacity-40 lg:opacity-60 block pointer-events-none z-0 animate-fadeIn"
         src="/image1.mp4"
         autoPlay
         loop
