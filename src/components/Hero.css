@@ -73,28 +73,3 @@
   pointer-events: none;
 }
 
-/* Hero.css */
-
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-    color: #00ffcc;
-  }
-  50% {
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-    color: #66ffe0;
-  }
-  100% {
-    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-    color: #00ffcc;
-  }
-}
-
-.icon-glow {
-  animation: glow 2s ease-in-out infinite;
-  transition: transform 0.3s ease;
-}
-
-.icon-glow:hover {
-  transform: scale(1.2);
-}
