@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaPenNib } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -35,7 +35,7 @@ const Contact = () => {
           rel="noopener noreferrer"
           className="hover:text-green-400"
         >
-          <FaGlobe />
+          <FaPenNib />
         </a>
       </div>
     </section>
