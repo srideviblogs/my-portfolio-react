@@ -3,7 +3,7 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaPenNib } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <section id="contact" className="bg-black text-white py-16 px-6 text-center">
+    <section id="contact" className="bg-gradient-to-r from-black via-gray-900 to-black text-white py-16 px-6 text-center">
       <h2 className="text-3xl font-semibold mb-6">Contact Me</h2>
       <p className="text-gray-400 mb-6">
         Feel free to reach out through any of the platforms below:
