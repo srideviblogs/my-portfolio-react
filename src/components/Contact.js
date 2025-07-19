@@ -1,21 +1,41 @@
 import React from "react";
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 
 const Contact = () => {
   return (
     <section id="contact" className="bg-black text-white py-16 px-6 text-center">
       <h2 className="text-3xl font-semibold mb-6">Contact Me</h2>
-      <p className="text-gray-400 mb-6">Feel free to reach out through any of the platforms below:</p>
+      <p className="text-gray-400 mb-6">
+        Feel free to reach out through any of the platforms below:
+      </p>
 
       <div className="flex justify-center gap-6 text-3xl">
         <a href="mailto:sridevi.velpula.official@gmail.com" className="hover:text-green-400">
           <FaEnvelope />
         </a>
-        <a href="https://github.com/srideviblogs" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">
+        <a
+          href="https://github.com/srideviblogs"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-green-400"
+        >
           <FaGithub />
         </a>
-        <a href="https://www.linkedin.com/in/sridevi-v-9ba35b243/" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">
+        <a
+          href="https://www.linkedin.com/in/sridevi-v-9ba35b243/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-green-400"
+        >
           <FaLinkedin />
+        </a>
+        <a
+          href="https://srideviblogs.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-green-400"
+        >
+          <FaGlobe />
         </a>
       </div>
     </section>
