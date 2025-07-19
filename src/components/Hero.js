@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import "./Hero.css";
 
@@ -33,16 +32,12 @@ const Hero = () => {
       {/* 🔹 Centered Text Content */}
       <div className="relative z-20 text-center px-6 max-w-3xl">
         <motion.h1
-          className="text-3xl md:text-6xl font-bold mb-4"
+          className="text-4xl md:text-6xl font-bold mb-4"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <TypeAnimation
-            sequence={["Sridevi Velpula", 2000]}
-            speed={50}
-            repeat={Infinity}
-          />
+          Hi, I'm Sridevi Velpula
         </motion.h1>
 
         <motion.h2
@@ -51,15 +46,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.6 }}
         >
-          <TypeAnimation
-            sequence={[
-              "DevOps Engineer", 2000,
-              "AWS | Azure | Kubernetes | Docker", 2000,
-              "Terraform | Linux | Python", 2000
-            ]}
-            speed={50}
-            repeat={Infinity}
-          />
+          DevOps Engineer
         </motion.h2>
 
         <motion.div
