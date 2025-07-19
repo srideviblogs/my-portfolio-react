@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+all icons glowing constantly  kindly give me final updated code import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPenNib } from "react-icons/fa";
-import "./Hero.css"; // You will update this CSS file too
+import { FaGithub, FaLinkedin, FaEnvelope, FaPenNib } from "react-icons/fa"; // ⬅️ Added FaPenNib
+import "./Hero.css";
 
 const Hero = () => {
   const videoRef = useRef(null);
@@ -59,7 +59,7 @@ const Hero = () => {
             href="https://github.com/srideviblogs"
             target="_blank"
             rel="noopener noreferrer"
-            className="icon-glow"
+            className="hover:text-green-400"
           >
             <FaGithub />
           </a>
@@ -67,13 +67,13 @@ const Hero = () => {
             href="https://www.linkedin.com/in/sridevi-v-9ba35b243/"
             target="_blank"
             rel="noopener noreferrer"
-            className="icon-glow"
+            className="hover:text-green-400"
           >
             <FaLinkedin />
           </a>
           <a
             href="mailto:sridevi.velpula.official@gmail.com"
-            className="icon-glow"
+            className="hover:text-green-400"
           >
             <FaEnvelope />
           </a>
@@ -81,7 +81,7 @@ const Hero = () => {
             href="https://srideviblogs.github.io/"
             target="_blank"
             rel="noopener noreferrer"
-            className="icon-glow"
+            className="hover:text-green-400"
           >
             <FaPenNib />
           </a>
@@ -91,4 +91,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero; kindly update in this
