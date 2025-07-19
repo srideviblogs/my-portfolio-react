@@ -3,24 +3,11 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section
-      id="about"
-      className="relative bg-black text-white py-20 px-6 md:px-28 overflow-hidden"
-    >
-      {/* Background texture or glow (optional) */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5 bg-repeat z-0 pointer-events-none" />
+    <section id="about" className="bg-black text-white py-16 px-6 md:px-28">
+      <h2 className="text-4xl font-bold text-center mb-12">About Me</h2>
 
-      {/* Section Title */}
-      <div className="relative z-10 text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold inline-block relative">
-          About Me
-          <span className="block h-1 w-20 bg-gradient-to-r from-teal-400 to-blue-500 mx-auto mt-2 rounded-full"></span>
-        </h2>
-      </div>
-
-      {/* Content Card */}
       <motion.div
-        className="relative z-10 bg-gradient-to-br from-gray-900/80 to-gray-800/80 rounded-3xl border border-gray-700 shadow-xl flex flex-col md:flex-row items-center md:items-start gap-10 p-8 md:p-12 backdrop-blur-md"
+        className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-xl flex flex-col md:flex-row items-center md:items-start gap-10 p-8 md:p-12"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -50,14 +37,9 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <h3 className="text-2xl font-semibold text-tealcustom mb-2">
-              Hi, I'm Sridevi Velpula
-            </h3>
-            <p className="text-gray-300 text-lg leading-relaxed tracking-wide">
-              A passionate{" "}
-              <span className="font-semibold text-white">DevOps Engineer</span>{" "}
-              with a strong background in automating infrastructure, cloud
-              technologies, and continuous integration pipelines.
+            <h3 className="text-2xl font-semibold text-tealcustom mb-2">Hi, I'm Sridevi Velpula</h3>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              A passionate <span className="font-semibold text-white">DevOps Engineer</span> with a strong background in automating infrastructure, cloud technologies, and continuous integration pipelines.
             </p>
           </motion.div>
 
@@ -69,7 +51,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <h4 className="text-xl font-semibold text-white mb-2">What I Do</h4>
-            <ul className="list-disc list-inside text-gray-300 space-y-1 pl-4">
+            <ul className="list-disc list-inside text-gray-300 space-y-1">
               <li>Cloud infrastructure management (AWS, Azure)</li>
               <li>CI/CD automation with Jenkins, GitLab CI</li>
               <li>Containerization using Docker & Kubernetes</li>
@@ -87,10 +69,8 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <h4 className="text-xl font-semibold text-white mb-2">My Drive</h4>
-            <p className="text-gray-300 leading-relaxed tracking-wide">
-              I love solving complex infrastructure problems and enabling smooth
-              developer workflows. I'm committed to clean automation, performance
-              optimization, and delivering scalable solutions.
+            <p className="text-gray-300 leading-relaxed">
+              I love solving complex infrastructure problems and enabling smooth developer workflows. I'm committed to clean automation, performance optimization, and delivering scalable solutions.
             </p>
           </motion.div>
         </div>
