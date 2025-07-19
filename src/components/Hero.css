@@ -46,19 +46,20 @@
 }
 
 @keyframes fadeIn {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateY(0);
   }
 }
 
 .animate-fadeIn {
-  animation: fadeIn 1.5s ease-out forwards;
+  animation: fadeIn 2s ease-out both;
 }
+
 
 .glow-effect {
   animation: pulseGlow 2s infinite ease-in-out;
