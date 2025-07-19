@@ -17,3 +17,18 @@
   font-size: 1.2rem;
   color: #555;
 }
+
+/* Add this in src/index.css or src/components/Hero.css if you import it */
+
+.glow-effect {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6),
+              0 0 40px rgba(0, 255, 255, 0.4),
+              0 0 60px rgba(0, 255, 255, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8),
+              0 0 60px rgba(0, 255, 255, 0.6),
+              0 0 90px rgba(0, 255, 255, 0.4);
+}
