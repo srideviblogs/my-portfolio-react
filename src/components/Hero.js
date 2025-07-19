@@ -72,7 +72,7 @@ const Hero = () => {
           loop
           muted
           playsInline
-          className="w-[300px] md:w-[400px] lg:w-[500px] rounded-xl shadow-lg"
+          cclassName="w-[300px] md:w-[400px] lg:w-[500px] rounded-xl shadow-xl glow-effect"
         />
       </motion.div>
     </section>
