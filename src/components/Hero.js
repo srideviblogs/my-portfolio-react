@@ -1,4 +1,4 @@
-all icons glowing constantly  kindly give me final updated code import React, { useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPenNib } from "react-icons/fa"; // ⬅️ Added FaPenNib
 import "./Hero.css";
@@ -91,4 +91,4 @@ const Hero = () => {
   );
 };
 
-export default Hero; kindly update in this
+export default Hero;
