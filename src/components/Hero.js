@@ -67,7 +67,7 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
       >
         <video
-          src="/image.webm"
+          src="/image1.webm"
           autoPlay
           loop
           muted
