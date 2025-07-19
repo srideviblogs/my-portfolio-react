@@ -1,15 +1,26 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import "./Hero.css"; // We'll use this for custom styles
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 bg-gradient-to-b from-gray-900 to-black text-white"
+      className="relative min-h-screen flex items-center bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden"
     >
-      {/* Left Side - Text & Icons */}
-      <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+      {/* Animated Background Video */}
+      <video
+        className="absolute right-0 top-0 h-full object-cover opacity-30 md:opacity-50 lg:opacity-70 hidden md:block glowing-background-video"
+        src="/image1.webm"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl px-6 md:px-20">
         <motion.h1
           className="text-4xl md:text-6xl font-bold mb-4"
           initial={{ opacity: 0, x: -40 }}
@@ -29,7 +40,7 @@ const Hero = () => {
         </motion.h2>
 
         <motion.div
-          className="flex justify-center md:justify-start gap-6 text-2xl"
+          className="flex gap-6 text-2xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
@@ -58,23 +69,6 @@ const Hero = () => {
           </a>
         </motion.div>
       </div>
-
-      {/* Right Side - DevOps Animation */}
-      <motion.div
-        className="md:w-1/2 flex justify-center"
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <video
-          src="/image1.webm"
-          autoPlay
-          loop
-          muted
-          playsInline
-          cclassName="w-[300px] md:w-[400px] lg:w-[500px] rounded-xl shadow-xl glow-effect"
-        />
-      </motion.div>
     </section>
   );
 };
