@@ -32,3 +32,19 @@
               0 0 60px rgba(0, 255, 255, 0.6),
               0 0 90px rgba(0, 255, 255, 0.4);
 }
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+}
+
+.glow-effect {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
