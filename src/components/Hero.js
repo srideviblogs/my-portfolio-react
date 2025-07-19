@@ -59,7 +59,7 @@ const Hero = () => {
             href="https://github.com/srideviblogs"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-pink-400"
+            className="hover:text-green-400"
           >
             <FaGithub />
           </a>
@@ -67,7 +67,7 @@ const Hero = () => {
             href="https://linkedin.com/in/sridevi-velpula"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-400"
+            className="hover:text-green-400"
           >
             <FaLinkedin />
           </a>
