@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPenNib } from "react-icons/fa"; // Added FaPenNib
 import "./Hero.css";
 
 const Hero = () => {
@@ -59,6 +59,7 @@ const Hero = () => {
             href="https://github.com/srideviblogs"
             target="_blank"
             rel="noopener noreferrer"
+            title="GitHub"
             className="hover:text-green-400"
           >
             <FaGithub />
@@ -67,15 +68,26 @@ const Hero = () => {
             href="https://www.linkedin.com/in/sridevi-v-9ba35b243/"
             target="_blank"
             rel="noopener noreferrer"
+            title="LinkedIn"
             className="hover:text-green-400"
           >
             <FaLinkedin />
           </a>
           <a
             href="mailto:sridevi.velpula.official@gmail.com"
+            title="Email"
             className="hover:text-green-400"
           >
             <FaEnvelope />
+          </a>
+          <a
+            href="https://srideviblogs.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Blog"
+            className="hover:text-green-400"
+          >
+            <FaPenNib />
           </a>
         </motion.div>
       </div>
